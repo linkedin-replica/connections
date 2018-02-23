@@ -1,5 +1,6 @@
 package main.java.commands;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -19,8 +20,9 @@ public abstract class Command {
      * Execute the command
      * @return The output (if any) of the command
      * 	LinkedHashMap preserve order of insertion so it will preserve this order when parsing to JSON
+     * @throws SQLException 
      */
-    public abstract void execute();
+    public abstract void execute() throws SQLException;
 
 	public void setArgs(HashMap<String, String> args) {
 		this.args = args;
