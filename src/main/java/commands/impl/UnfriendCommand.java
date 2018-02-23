@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import main.java.commands.Command;
 
 /**
- *  Implementation of command design patterns for block user functionality
+ *  Implementation of command design patterns for unfriend user functionality
  */
 public class UnfriendCommand extends Command{
 
