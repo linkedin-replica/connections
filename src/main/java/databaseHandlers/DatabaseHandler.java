@@ -14,7 +14,7 @@ public interface DatabaseHandler {
 	/**
 	 * Accept friend request 
 	 */
-	public void accpetFriendRequest(String name);
+	public void acceptFriendRequest(String name);
 	
 	/**
 	 * Unfriend a user 
