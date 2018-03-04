@@ -1,0 +1,10 @@
+blockUser.command=BlockUserCommand
+blockUser.dbHandler=MySqlHandler
+unblockUser.command=UnblockUserCommand
+unblockUser.dbHandler=MySqlHandler
+addFriend.command=AddFriendCommand
+addFriend.dbHandler=MySqlHandler
+acceptFriend.command=AcceptFriendCommand
+acceptFriend.dbHandler=MySqlHandler
+unfriendUser.command=UnfriendCommand
+unfriendUser.dbHandler=MySqlHandler
