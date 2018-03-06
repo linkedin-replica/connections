@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import main.java.config.Config;
+import main.java.config.DatabaseConnections;
 
 
 public class Main {
@@ -19,11 +20,11 @@ public class Main {
 		
 		// create singleton instance of DatabaseConnection class that is responsible for intiating connections
 		// with databases
-		DatabaseConnection.getInstance();
+		DatabaseConnections.getInstance();
 	}
 	
 	public static void shutdown() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
-		DatabaseConnection.getInstance().closeConnections();
+		DatabaseConnections.getInstance().closeConnections();
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException {
