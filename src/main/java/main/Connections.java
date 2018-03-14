@@ -8,7 +8,7 @@ import main.java.config.Config;
 import main.java.config.DatabaseConnections;
 
 
-public class Main {
+public class Connections{
 	
 	public static void start(String... args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
 		if(args.length != 3)
@@ -28,6 +28,6 @@ public class Main {
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException {
-		Main.start(args);
+		Connections.start(args);
 	}
 }

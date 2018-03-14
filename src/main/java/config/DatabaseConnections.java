@@ -26,8 +26,8 @@ public class DatabaseConnections {
 	private DatabaseConnections() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
 		properties = new Properties();
 		properties.load(new FileInputStream(Config.getInstance().getDatabaseConfigPath()));
-		
 		mysqlConn = getNewMysqlDB();
+
 //		redis = new Jedis();
 	}
 	
