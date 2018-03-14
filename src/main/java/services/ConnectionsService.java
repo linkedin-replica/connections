@@ -1,4 +1,4 @@
-package main.java.services;
+package services;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Properties;
 
-import main.java.commands.Command;
-import main.java.config.Config;
-import main.java.databaseHandlers.DatabaseHandler;
+import commands.Command;
+import config.Config;
+import databaseHandlers.DatabaseHandler;
 
 
 /**
@@ -29,8 +29,8 @@ public class ConnectionsService {
 	public ConnectionsService() throws FileNotFoundException, IOException{
 		prop = new Properties();
 		prop.load(new FileInputStream(Config.getInstance().getCommandConfigPath()));
-		commandsPackageName = "main.java.commands.impl";
-		dbHandlerPackageName = "main.java.databaseHandlers.impl";
+		commandsPackageName = "commands.impl";
+		dbHandlerPackageName = "databaseHandlers.impl";
 	}
 		
 	public  void serve(String commandName, HashMap<String, String> args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
@@ -50,7 +50,7 @@ public class ConnectionsService {
 			// set args and dbHandler of command
 			command.setArgs(args);
 			command.setDbHandler(dbHandler);
-			
+
 			// execute command
 			command.execute();
 	}

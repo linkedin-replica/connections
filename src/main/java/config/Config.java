@@ -1,4 +1,4 @@
-package main.java.config;
+package config;
 
 public class Config {
 	private String databaseConfigPath;

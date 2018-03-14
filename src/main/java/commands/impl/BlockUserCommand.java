@@ -1,13 +1,13 @@
-package main.java.commands.impl;
+package commands.impl;
 
 import java.sql.SQLException;
 
-import main.java.commands.Command;
+import commands.Command;
 
 /**
  *  Implementation of command design patterns for block user functionality
  */
-public class BlockUserCommand extends Command{
+public class BlockUserCommand extends Command {
 
 	@Override
 	public void execute() throws SQLException {

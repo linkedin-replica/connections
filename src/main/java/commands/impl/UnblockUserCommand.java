@@ -1,8 +1,8 @@
-package main.java.commands.impl;
+package commands.impl;
 
 import java.sql.SQLException;
 
-import main.java.commands.Command;
+import commands.Command;
 
 /**
  *  Implementation of command design patterns for unblock user functionality

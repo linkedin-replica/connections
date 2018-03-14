@@ -1,4 +1,4 @@
-package main.java.databaseHandlers.impl;
+package databaseHandlers.impl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -6,8 +6,8 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import main.java.config.DatabaseConnections;
-import main.java.databaseHandlers.DatabaseHandler;
+import config.DatabaseConnections;
+import databaseHandlers.DatabaseHandler;
 
 public class MySqlHandler implements DatabaseHandler {
 	

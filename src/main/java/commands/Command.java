@@ -1,10 +1,9 @@
-package main.java.commands;
+package commands;
 
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 
-import main.java.databaseHandlers.DatabaseHandler;
+import databaseHandlers.DatabaseHandler;
 
 /**
  * Command is an abstract class responsible for handling specific request and it communicates between

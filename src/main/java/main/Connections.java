@@ -1,11 +1,12 @@
-package main.java.main;
+package main;
+
+import config.Config;
+import config.DatabaseConnections;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import main.java.config.Config;
-import main.java.config.DatabaseConnections;
 
 
 public class Connections{

@@ -1,4 +1,4 @@
-package main.java.databaseHandlers;
+package databaseHandlers;
 
 import java.sql.SQLException;
 

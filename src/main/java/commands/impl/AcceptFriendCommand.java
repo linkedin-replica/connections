@@ -1,13 +1,13 @@
-package main.java.commands.impl;
+package commands.impl;
 
 import java.sql.SQLException;
 
-import main.java.commands.Command;
+import commands.Command;
 
 /**
  *  Implementation of command design patterns for accept friend functionality
  */
-public class AcceptFriendCommand extends Command{
+public class AcceptFriendCommand extends Command {
 
 	@Override
 	public void execute() throws SQLException {

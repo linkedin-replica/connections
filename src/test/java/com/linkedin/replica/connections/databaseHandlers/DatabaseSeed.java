@@ -1,8 +1,7 @@
 package com.linkedin.replica.connections.databaseHandlers;
 
-import main.java.config.DatabaseConnections;
-import main.java.databaseHandlers.DatabaseHandler;
-import main.java.databaseHandlers.impl.MySqlHandler;
+import config.DatabaseConnections;
+import databaseHandlers.impl.MySqlHandler;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +10,6 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.StringTokenizer;
-import java.util.UUID;
 
 public class DatabaseSeed {
     Connection mySqlConnection;
