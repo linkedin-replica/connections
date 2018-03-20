@@ -1,7 +1,7 @@
 package com.linkedin.replica.connections.main;
 
 import com.linkedin.replica.connections.config.Config;
-import com.linkedin.replica.connections.config.DatabaseConnections;
+import com.linkedin.replica.connections.database.DatabaseConnections;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

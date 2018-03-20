@@ -9,7 +9,7 @@ import java.util.Properties;
 
 import com.linkedin.replica.connections.commands.Command;
 import com.linkedin.replica.connections.config.Config;
-import com.linkedin.replica.connections.databaseHandlers.DatabaseHandler;
+import com.linkedin.replica.connections.database.handlers.impl.DatabaseHandler;
 
 
 /**
@@ -29,7 +29,7 @@ public class ConnectionsService {
 		prop = new Properties();
 		prop.load(new FileInputStream(Config.getInstance().getCommandConfigPath()));
 		commandsPackageName = "com.linkedin.replica.connections.commands.impl";
-		dbHandlerPackageName = "com.linkedin.replica.connections.databaseHandlers.impl";
+		dbHandlerPackageName = "com.linkedin.replica.connections.database.handlers.impl";
 	}
 		
 	public  void serve(String commandName, HashMap<String, String> args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{

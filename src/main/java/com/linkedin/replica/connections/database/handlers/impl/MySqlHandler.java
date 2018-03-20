@@ -1,4 +1,4 @@
-package com.linkedin.replica.connections.databaseHandlers.impl;
+package com.linkedin.replica.connections.database.handlers.impl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -6,8 +6,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.linkedin.replica.connections.config.DatabaseConnections;
-import com.linkedin.replica.connections.databaseHandlers.DatabaseHandler;
+import com.linkedin.replica.connections.database.DatabaseConnections;
 
 public class MySqlHandler implements DatabaseHandler {
 	

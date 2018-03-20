@@ -1,7 +1,7 @@
 package com.linkedin.replica.connections.main;
 
-import com.linkedin.replica.connections.databaseHandlers.DatabaseSeed;
-import com.linkedin.replica.connections.config.DatabaseConnections;
+import com.linkedin.replica.connections.database.DatabaseSeed;
+import com.linkedin.replica.connections.database.DatabaseConnections;
 import org.junit.*;
 import com.linkedin.replica.connections.services.ConnectionsService;
 import java.io.IOException;
@@ -47,8 +47,8 @@ public class ConnectionsTest {
 
     @Test
     public void testAcceptFriendRequest() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        String user1ID = "e4def870-f331-4fb5-a44c-967592cf5b42";
-        String user2ID = "ff810a3f-07fc-4d35-bc84-98aed333b043";
+        String user1ID = "e4def870-f331-4fb5-a44c-967592cf5b42"; //anwar   
+        String user2ID = "ff810a3f-07fc-4d35-bc84-98aed333b043"; //hatem
         String commandName = "acceptFriend";
         HashMap<String, String> parameters = new HashMap<String, String>();
         parameters.put("userID1", user1ID);

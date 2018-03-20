@@ -1,7 +1,6 @@
-package com.linkedin.replica.connections.databaseHandlers;
+package com.linkedin.replica.connections.database;
 
-import com.linkedin.replica.connections.config.DatabaseConnections;
-import com.linkedin.replica.connections.databaseHandlers.impl.MySqlHandler;
+import com.linkedin.replica.connections.database.handlers.impl.MySqlHandler;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

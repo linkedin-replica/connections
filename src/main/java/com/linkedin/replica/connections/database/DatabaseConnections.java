@@ -1,4 +1,6 @@
-package com.linkedin.replica.connections.config;
+package com.linkedin.replica.connections.database;
+
+import com.linkedin.replica.connections.config.Config;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
