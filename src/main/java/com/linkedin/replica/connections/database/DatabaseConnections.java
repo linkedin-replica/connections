@@ -1,6 +1,6 @@
 package com.linkedin.replica.connections.database;
 
-import com.linkedin.replica.connections.config.Config;
+import com.linkedin.replica.connections.config.Configuration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,7 +27,7 @@ public class DatabaseConnections {
 	
 	private DatabaseConnections() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
 		properties = new Properties();
-		properties.load(new FileInputStream(Config.getInstance().getDatabaseConfigPath()));
+		properties.load(new FileInputStream(Configuration.getInstance().getDatabaseConfigPath()));
 		mysqlConn = getNewMysqlDB();
 
 //		redis = new Jedis();

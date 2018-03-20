@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Properties;
 
 import com.linkedin.replica.connections.commands.Command;
-import com.linkedin.replica.connections.config.Config;
+import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
 
 
@@ -27,7 +27,7 @@ public class ConnectionsService {
 	
 	public ConnectionsService() throws FileNotFoundException, IOException{
 		prop = new Properties();
-		prop.load(new FileInputStream(Config.getInstance().getCommandConfigPath()));
+		prop.load(new FileInputStream(Configuration.getInstance().getCommandConfigPath()));
 		commandsPackageName = "com.linkedin.replica.connections.commands.impl";
 		dbHandlerPackageName = "com.linkedin.replica.connections.database.handlers.impl";
 	}

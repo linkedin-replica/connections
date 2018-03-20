@@ -1,32 +1,32 @@
 package com.linkedin.replica.connections.config;
 
-public class Config {
+public class Configuration {
 	private String databaseConfigPath;
 	private String commandConfigPath;
 	private String arangoNamesConfigPath;
-	private static Config instance;
+	private static Configuration instance;
  	
-	private Config(String databaseConfigPath, String commandConfigPath,
-			String arangoNamesConfigPath) {
+	private Configuration(String databaseConfigPath, String commandConfigPath,
+						  String arangoNamesConfigPath) {
 		this.databaseConfigPath = databaseConfigPath;
 		this.commandConfigPath = commandConfigPath;
 		this.arangoNamesConfigPath = arangoNamesConfigPath;
 	}
 	
-	public static Config getInstance(String databaseConfigPath, String commandConfigPath,
-			String arangoNamesConfigPath) {
+	public static Configuration getInstance(String databaseConfigPath, String commandConfigPath,
+											String arangoNamesConfigPath) {
 		
 		if(instance == null){
-			synchronized (Config.class) {
+			synchronized (Configuration.class) {
 				if(instance == null){
-					instance = new Config(databaseConfigPath, commandConfigPath, arangoNamesConfigPath);
+					instance = new Configuration(databaseConfigPath, commandConfigPath, arangoNamesConfigPath);
 				}
 			}
 		}	
 		return instance;
 	}
 
-	public static Config getInstance(){
+	public static Configuration getInstance(){
 		return instance;
 	}
 	
