@@ -13,7 +13,7 @@ import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
 
 
 /**
- * Connections Service is responsible for taking input from controller, reading com.linkedin.replica.connections.commands com.linkedin.replica.connections.config file to
+ * Main Service is responsible for taking input from controller, reading com.linkedin.replica.connections.commands com.linkedin.replica.connections.config file to
  * get specific command responsible for handling input request and also get DatabaseHandler name
  * Associated with this command 
  * 

@@ -57,7 +57,7 @@ public class RequestProcessingHandler extends ChannelInboundHandlerAdapter{
         }
         responseBody.put("errMessage", cause.getMessage());
 
-//		cause.printStackTrace();
+		cause.printStackTrace();
         // send response to ResponseEncoderHandler
         ctx.writeAndFlush(responseBody);
     }

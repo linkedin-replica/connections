@@ -10,14 +10,14 @@ import java.util.HashMap;
 
 import static org.junit.Assert.assertTrue;
 
-public class ConnectionsTest {
+public class MainTest {
     private static ConnectionsService service;
     static Connection mySqlConnection;
 
     @BeforeClass
     public static void setup() throws SQLException, IOException, ClassNotFoundException {
-        String[] args = {"src/main/resources/database.config", "src/main/resources/commmands.config" , "src/main/resources/arango_names"};
-        Connections.start(args);
+        String[] args = {"src/main/resources/app.config", "src/main/resources/database.config" , "src/main/resources/commands.config", "src/main/resources/controller.config"};
+        Main.start(args);
         service = new ConnectionsService();
         DatabaseSeed dbseed = new DatabaseSeed();
         dbseed.insertUsers();
