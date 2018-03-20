@@ -1,4 +1,4 @@
-package main.java.databaseHandlers;
+package com.linkedin.replica.connections.database.handlers;
 
 import java.sql.SQLException;
 

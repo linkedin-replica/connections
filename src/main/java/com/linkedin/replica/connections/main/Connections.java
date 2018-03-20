@@ -1,14 +1,15 @@
-package main.java.main;
+package com.linkedin.replica.connections.main;
+
+import com.linkedin.replica.connections.config.Configuration;
+import com.linkedin.replica.connections.database.DatabaseConnections;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import main.java.config.Config;
-import main.java.config.DatabaseConnections;
 
 
-public class Main {
+public class Connections{
 	
 	public static void start(String... args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
 		if(args.length != 3)
@@ -16,7 +17,7 @@ public class Main {
 					+ "2- command_config file path  3- arango_name file path");
 		
 		// create singleton instance of Configuration class that will hold configuration files paths
-		Config.getInstance(args[0], args[1], args[2]);
+		Configuration.getInstance(args[0], args[1], args[2]);
 		
 		// create singleton instance of DatabaseConnection class that is responsible for intiating connections
 		// with databases
@@ -28,6 +29,6 @@ public class Main {
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException {
-		Main.start(args);
+		Connections.start(args);
 	}
 }

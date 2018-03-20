@@ -1,10 +1,9 @@
-package main.java.commands;
+package com.linkedin.replica.connections.commands;
 
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 
-import main.java.databaseHandlers.DatabaseHandler;
+import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
 
 /**
  * Command is an abstract class responsible for handling specific request and it communicates between

@@ -1,13 +1,13 @@
-package main.java.commands.impl;
+package com.linkedin.replica.connections.commands.impl;
 
 import java.sql.SQLException;
 
-import main.java.commands.Command;
+import com.linkedin.replica.connections.commands.Command;
 
 /**
  *  Implementation of command design patterns for add friend functionality
  */
-public class AddFriendCommand extends Command{
+public class AddFriendCommand extends Command {
 
 	@Override
 	public void execute() throws SQLException {

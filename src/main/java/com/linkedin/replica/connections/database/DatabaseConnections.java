@@ -1,4 +1,6 @@
-package main.java.config;
+package com.linkedin.replica.connections.database;
+
+import com.linkedin.replica.connections.config.Configuration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,7 +15,7 @@ import java.util.Properties;
 //import com.arangodb.ArangoDB;
 
 /**
- *  DatabaseConnection is a singleton class responsible for reading database config file and initiate 
+ *  DatabaseConnection is a singleton class responsible for reading database com.linkedin.replica.connections.config file and initiate
  *  connections to databases
  */
 public class DatabaseConnections {
@@ -25,9 +27,9 @@ public class DatabaseConnections {
 	
 	private DatabaseConnections() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
 		properties = new Properties();
-		properties.load(new FileInputStream(Config.getInstance().getDatabaseConfigPath()));
-		
+		properties.load(new FileInputStream(Configuration.getInstance().getDatabaseConfigPath()));
 		mysqlConn = getNewMysqlDB();
+
 //		redis = new Jedis();
 	}
 	
