@@ -4,12 +4,10 @@
     <list default="true" id="9c96b146-0ffd-4949-812b-026bc0e81fee" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/connections.iws" afterPath="$PROJECT_DIR$/connections.iws" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/Command.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/Command.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/config/DatabaseConnections.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/DatabaseConnections.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/databaseHandlers/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/DatabaseHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/databaseHandlers/impl/MySqlHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/MySqlHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/main/Connections.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/main/Connections.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/DatabaseHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/DatabaseHandler.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/MySqlHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/MySqlHandler.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/databaseHandlers/DatabaseSeed.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/ConnectionsTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/ConnectionsTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,11 +24,9 @@
       <file leaf-file-name="ConnectionsService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="31" column="82" lean-forward="false" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="82" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -38,16 +34,36 @@
       <file leaf-file-name="ConnectionsTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/ConnectionsTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="49" column="73" lean-forward="false" selection-start-line="49" selection-start-column="73" selection-end-line="49" selection-end-column="73" />
+            <state relative-caret-position="684">
+              <caret line="56" column="19" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1372#1388#0" expanded="true" />
-                <element signature="e#2322#2338#0" expanded="true" />
-                <element signature="e#3255#3271#0" expanded="true" />
-                <element signature="e#4179#4195#0" expanded="true" />
-                <element signature="e#5089#5105#0" expanded="true" />
+                <element signature="e#1410#1426#0" expanded="true" />
+                <element signature="e#2523#2539#0" expanded="true" />
+                <element signature="e#3456#3472#0" expanded="true" />
+                <element signature="e#4380#4396#0" expanded="true" />
+                <element signature="e#5290#5306#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySqlHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/MySqlHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/resources/users">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,8 +71,8 @@
       <file leaf-file-name="DatabaseSeed.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+            <state relative-caret-position="364">
+              <caret line="46" column="9" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="46" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -65,8 +81,8 @@
       <file leaf-file-name="DatabaseConnections.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/DatabaseConnections.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+            <state relative-caret-position="-230">
+              <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,6 +132,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/DatabaseConnections.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/DatabaseHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/DatabaseConnections.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/ConnectionsTest.java" />
       </list>
     </option>
@@ -236,6 +253,17 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="connections" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connections" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connections" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="connections" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -279,6 +307,14 @@
             </path>
             <path>
               <item name="connections" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connections" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connections" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -294,6 +330,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.linkedin.replica.connections.database.handlers" />
       <recent name="com.linkedin.replica.connections" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -554,20 +591,23 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ConnectionsTest - 2018.03.20 at 16h 04m 39s.xml">
-      <configuration name="ConnectionsTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConnectionsTest - 2018.03.20 at 16h 05m 12s.xml">
-      <configuration name="ConnectionsTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConnectionsTest - 2018.03.20 at 16h 06m 08s.xml">
-      <configuration name="ConnectionsTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ConnectionsTest - 2018.03.20 at 16h 13m 34s.xml">
       <configuration name="ConnectionsTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConnectionsTest_testAcceptFriendRequest - 2018.03.20 at 16h 04m 26s.xml">
-      <configuration name="ConnectionsTest.testAcceptFriendRequest" configurationId="JUnit" />
+    <history-entry file="ConnectionsTest - 2018.03.20 at 16h 15m 55s.xml">
+      <configuration name="ConnectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConnectionsTest - 2018.03.20 at 16h 16m 31s.xml">
+      <configuration name="ConnectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConnectionsTest - 2018.03.20 at 16h 17m 09s.xml">
+      <configuration name="ConnectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConnectionsTest - 2018.03.20 at 16h 24m 53s.xml">
+      <configuration name="ConnectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConnectionsTest - 2018.03.20 at 16h 28m 53s.xml">
+      <configuration name="ConnectionsTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ConnectionsTest_testAcceptFriendRequest - 2018.03.20 at 16h 11m 29s.xml">
       <configuration name="ConnectionsTest.testAcceptFriendRequest" configurationId="JUnit" />
@@ -577,9 +617,6 @@
     </history-entry>
     <history-entry file="ConnectionsTest_testAddFriend - 2018.03.20 at 16h 11m 20s.xml">
       <configuration name="ConnectionsTest.testAddFriend" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConnectionsTest_testUnblockUser - 2018.03.20 at 16h 11m 05s.xml">
-      <configuration name="ConnectionsTest.testUnblockUser" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ConnectionsTest_testUnfriendUser - 2018.03.20 at 16h 11m 10s.xml">
       <configuration name="ConnectionsTest.testUnfriendUser" configurationId="JUnit" />
@@ -597,7 +634,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -631,14 +668,14 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/ConnectionsTest.java</url>
-          <line>48</line>
+          <line>49</line>
           <properties class="com.linkedin.replica.connections.main.ConnectionsTest" method="testAcceptFriendRequest">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -654,13 +691,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="31" column="68" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/DatabaseHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
@@ -680,11 +715,11 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1372#1388#0" expanded="true" />
-            <element signature="e#2322#2338#0" expanded="true" />
-            <element signature="e#3255#3271#0" expanded="true" />
-            <element signature="e#4179#4195#0" expanded="true" />
-            <element signature="e#5089#5105#0" expanded="true" />
+            <element signature="e#1410#1426#0" expanded="true" />
+            <element signature="e#2523#2539#0" expanded="true" />
+            <element signature="e#3456#3472#0" expanded="true" />
+            <element signature="e#4380#4396#0" expanded="true" />
+            <element signature="e#5290#5306#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -693,9 +728,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="35" column="17" lean-forward="false" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -703,9 +736,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="774">
           <caret line="50" column="51" lean-forward="false" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -745,11 +776,11 @@
           <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1372#1388#0" expanded="true" />
-            <element signature="e#2322#2338#0" expanded="true" />
-            <element signature="e#3255#3271#0" expanded="true" />
-            <element signature="e#4179#4195#0" expanded="true" />
-            <element signature="e#5089#5105#0" expanded="true" />
+            <element signature="e#1410#1426#0" expanded="true" />
+            <element signature="e#2523#2539#0" expanded="true" />
+            <element signature="e#3456#3472#0" expanded="true" />
+            <element signature="e#4380#4396#0" expanded="true" />
+            <element signature="e#5290#5306#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -768,11 +799,11 @@
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1372#1388#0" expanded="true" />
-            <element signature="e#2322#2338#0" expanded="true" />
-            <element signature="e#3255#3271#0" expanded="true" />
-            <element signature="e#4179#4195#0" expanded="true" />
-            <element signature="e#5089#5105#0" expanded="true" />
+            <element signature="e#1410#1426#0" expanded="true" />
+            <element signature="e#2523#2539#0" expanded="true" />
+            <element signature="e#3456#3472#0" expanded="true" />
+            <element signature="e#4380#4396#0" expanded="true" />
+            <element signature="e#5290#5306#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -793,11 +824,11 @@
           <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1372#1388#0" expanded="true" />
-            <element signature="e#2322#2338#0" expanded="true" />
-            <element signature="e#3255#3271#0" expanded="true" />
-            <element signature="e#4179#4195#0" expanded="true" />
-            <element signature="e#5089#5105#0" expanded="true" />
+            <element signature="e#1410#1426#0" expanded="true" />
+            <element signature="e#2523#2539#0" expanded="true" />
+            <element signature="e#3456#3472#0" expanded="true" />
+            <element signature="e#4380#4396#0" expanded="true" />
+            <element signature="e#5290#5306#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -864,24 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/resources/users">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/MySqlHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1026,7 +1039,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/DatabaseHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
@@ -1034,45 +1047,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/DatabaseConnections.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="31" column="82" lean-forward="false" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="82" />
+        <state relative-caret-position="-230">
+          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/DatabaseConnections.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/MySqlHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/resources/users">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        <state relative-caret-position="364">
+          <caret line="46" column="9" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="46" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/ConnectionsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="49" column="73" lean-forward="false" selection-start-line="49" selection-start-column="73" selection-end-line="49" selection-end-column="73" />
+        <state relative-caret-position="684">
+          <caret line="56" column="19" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1372#1388#0" expanded="true" />
-            <element signature="e#2322#2338#0" expanded="true" />
-            <element signature="e#3255#3271#0" expanded="true" />
-            <element signature="e#4179#4195#0" expanded="true" />
-            <element signature="e#5089#5105#0" expanded="true" />
+            <element signature="e#1410#1426#0" expanded="true" />
+            <element signature="e#2523#2539#0" expanded="true" />
+            <element signature="e#3456#3472#0" expanded="true" />
+            <element signature="e#4380#4396#0" expanded="true" />
+            <element signature="e#5290#5306#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -3,7 +3,7 @@ package com.linkedin.replica.connections.commands;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import com.linkedin.replica.connections.database.handlers.impl.DatabaseHandler;
+import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
 
 /**
  * Command is an abstract class responsible for handling specific request and it communicates between

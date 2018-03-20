@@ -9,7 +9,7 @@ import java.util.Properties;
 
 import com.linkedin.replica.connections.commands.Command;
 import com.linkedin.replica.connections.config.Config;
-import com.linkedin.replica.connections.database.handlers.impl.DatabaseHandler;
+import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
 
 
 /**

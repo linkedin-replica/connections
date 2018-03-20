@@ -36,4 +36,21 @@ public class DatabaseSeed {
         }
     }
 
+    public void insertFriendRequest() throws SQLException {
+        String userID1 = "54f8a99f-0f23-4bdc-a899-90480d7d4032";
+        String userID2 = "da7b6939-0f5c-404c-b317-8e5d21b05204";
+        int v = userID1.compareTo(userID2);
+        if(v > 0) {
+            String temp = userID1;
+            userID1 = userID2;
+            userID2 = temp;
+        }
+        String query = "{CALL Add_Friend(?, ?, ?)}";
+        CallableStatement stmt = mySqlConnection.prepareCall(query);
+        stmt.setString(1, userID1);
+        stmt.setString(2, userID2);
+        stmt.setInt(3, 0);
+        stmt.executeQuery();
+    }
+
 }

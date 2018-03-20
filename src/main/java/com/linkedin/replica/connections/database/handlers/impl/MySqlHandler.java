@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.linkedin.replica.connections.database.DatabaseConnections;
+import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
 
 public class MySqlHandler implements DatabaseHandler {
 	

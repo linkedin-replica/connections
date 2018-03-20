@@ -21,6 +21,7 @@ public class ConnectionsTest {
         service = new ConnectionsService();
         DatabaseSeed dbseed = new DatabaseSeed();
         dbseed.insertUsers();
+        dbseed.insertFriendRequest();
         mySqlConnection = DatabaseConnections.getInstance().getMysqlConn();
 
     }
@@ -47,8 +48,14 @@ public class ConnectionsTest {
 
     @Test
     public void testAcceptFriendRequest() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        String user1ID = "e4def870-f331-4fb5-a44c-967592cf5b42"; //anwar   
-        String user2ID = "ff810a3f-07fc-4d35-bc84-98aed333b043"; //hatem
+        String user1ID = "54f8a99f-0f23-4bdc-a899-90480d7d4032"; //nada
+        String user2ID = "da7b6939-0f5c-404c-b317-8e5d21b05204"; //yara
+        int v = user1ID.compareTo(user2ID);
+        if(v > 0) {
+            String temp = user1ID;
+            user1ID = user2ID;
+            user2ID = temp;
+        }
         String commandName = "acceptFriend";
         HashMap<String, String> parameters = new HashMap<String, String>();
         parameters.put("userID1", user1ID);
