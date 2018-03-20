@@ -32,7 +32,7 @@ public class ConnectionsService {
 		dbHandlerPackageName = "com.linkedin.replica.connections.database.handlers.impl";
 	}
 		
-	public  void serve(String commandName, HashMap<String, String> args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+	public  void serve(String commandName, HashMap<String, Object> args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException, NoSuchMethodException {
 			String commandClassName = commandsPackageName + "." + prop.getProperty(commandName + ".command");
 			String handlerClassName = dbHandlerPackageName + "." + prop.getProperty(commandName+ ".dbHandler");
 			

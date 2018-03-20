@@ -13,8 +13,8 @@ public class Connections{
 	
 	public static void start(String... args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
 		if(args.length != 3)
-			throw new IllegalArgumentException("Expected three arguments. 1-database_config file path "
-					+ "2- command_config file path  3- arango_name file path");
+			throw new IllegalArgumentException("Expected three arguments. 1-database.config file path "
+					+ "2- commmands.config file path  3- arango_name file path");
 		
 		// create singleton instance of Configuration class that will hold configuration files paths
 		Configuration.getInstance(args[0], args[1], args[2]);
