@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c96b146-0ffd-4949-812b-026bc0e81fee" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/ControllerCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/Server.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/RequestDecoderHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/RequestProcessingHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/ResponseEncoderHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/exceptions/ConnectionsException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ControllerService.java" />
-      <change beforePath="$PROJECT_DIR$/connections.iml" afterPath="$PROJECT_DIR$/connections.iml" />
-      <change beforePath="$PROJECT_DIR$/connections.ipr" afterPath="$PROJECT_DIR$/connections.ipr" />
-      <change beforePath="$PROJECT_DIR$/connections.iws" afterPath="$PROJECT_DIR$/connections.iws" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/Command.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/Command.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AcceptFriendCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AcceptFriendCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AddFriendCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AddFriendCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/BlockUserCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/BlockUserCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnblockUserCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnblockUserCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnfriendCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnfriendCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/config/Configuration.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/config/Configuration.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java" />
-    </list>
+    <list default="true" id="9c96b146-0ffd-4949-812b-026bc0e81fee" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,8 +42,8 @@
       <file leaf-file-name="ControllerService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ControllerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+            <state relative-caret-position="828">
+              <caret line="46" column="43" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#831#847#0" expanded="true" />
@@ -179,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/exceptions/ConnectionsException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/RequestDecoderHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ControllerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/RequestProcessingHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/config/Configuration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/Command.java" />
@@ -189,6 +168,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AcceptFriendCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnblockUserCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnfriendCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ControllerService.java" />
       </list>
     </option>
   </component>
@@ -631,6 +611,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -644,7 +625,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.277388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.277388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1088,8 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ControllerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        <state relative-caret-position="828">
+          <caret line="46" column="43" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#831#847#0" expanded="true" />
