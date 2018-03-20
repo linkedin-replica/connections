@@ -27,12 +27,12 @@ public class ConnectionsService {
 	
 	public ConnectionsService() throws FileNotFoundException, IOException{
 		prop = new Properties();
-		prop.load(new FileInputStream(Configuration.getInstance().getCommandConfigPath()));
+		prop.load(new FileInputStream(Configuration.getInstance().getCommandsConfigPath()));
 		commandsPackageName = "com.linkedin.replica.connections.commands.impl";
 		dbHandlerPackageName = "com.linkedin.replica.connections.database.handlers.impl";
 	}
 		
-	public  void serve(String commandName, HashMap<String, String> args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+	public  void serve(String commandName, HashMap<String, Object> args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException, NoSuchMethodException {
 			String commandClassName = commandsPackageName + "." + prop.getProperty(commandName + ".command");
 			String handlerClassName = dbHandlerPackageName + "." + prop.getProperty(commandName+ ".dbHandler");
 			

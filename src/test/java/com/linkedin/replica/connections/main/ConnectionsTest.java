@@ -16,7 +16,7 @@ public class ConnectionsTest {
 
     @BeforeClass
     public static void setup() throws SQLException, IOException, ClassNotFoundException {
-        String[] args = {"src/main/resources/database_config", "src/main/resources/command_config" , "src/main/resources/arango_names"};
+        String[] args = {"src/main/resources/database.config", "src/main/resources/commmands.config" , "src/main/resources/arango_names"};
         Connections.start(args);
         service = new ConnectionsService();
         DatabaseSeed dbseed = new DatabaseSeed();
@@ -27,11 +27,11 @@ public class ConnectionsTest {
     }
 
     @Test
-    public void testAddFriend() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public void testAddFriend() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         String user1ID = "e4def870-f331-4fb5-a44c-967592cf5b42"; //anwar
         String user2ID = "ff810a3f-07fc-4d35-bc84-98aed333b043"; // hatem
         String commandName = "addFriend";
-        HashMap<String, String> parameters = new HashMap<String, String>();
+        HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
 
@@ -47,7 +47,7 @@ public class ConnectionsTest {
     }
 
     @Test
-    public void testAcceptFriendRequest() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public void testAcceptFriendRequest() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         String user1ID = "54f8a99f-0f23-4bdc-a899-90480d7d4032"; //nada
         String user2ID = "da7b6939-0f5c-404c-b317-8e5d21b05204"; //yara
         int v = user1ID.compareTo(user2ID);
@@ -57,7 +57,7 @@ public class ConnectionsTest {
             user2ID = temp;
         }
         String commandName = "acceptFriend";
-        HashMap<String, String> parameters = new HashMap<String, String>();
+        HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
 
@@ -72,11 +72,11 @@ public class ConnectionsTest {
     }
 
     @Test
-    public void testBlockUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public void testBlockUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         String user1ID = "064ff6df-63e2-456c-9d18-4184073d7a6d"; //esraa
         String user2ID = "55f4ebbb-606e-4e49-9604-830491c17d73"; //baher
         String commandName = "blockUser";
-        HashMap<String, String> parameters = new HashMap<String, String>();
+        HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
 
@@ -91,11 +91,11 @@ public class ConnectionsTest {
     }
 
     @Test
-    public void testUnblockUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public void testUnblockUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         String user1ID = "064ff6df-63e2-456c-9d18-4184073d7a6d"; //esraa
         String user2ID = "55f4ebbb-606e-4e49-9604-830491c17d73"; //baher
         String commandName = "unblockUser";
-        HashMap<String, String> parameters = new HashMap<String, String>();
+        HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
 
@@ -110,11 +110,11 @@ public class ConnectionsTest {
     }
 
     @Test
-    public void testUnfriendUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public void testUnfriendUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         String user1ID = "e4def870-f331-4fb5-a44c-967592cf5b42";
         String user2ID = "ff810a3f-07fc-4d35-bc84-98aed333b043";
         String commandName = "unfriendUser";
-        HashMap<String, String> parameters = new HashMap<String, String>();
+        HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
 

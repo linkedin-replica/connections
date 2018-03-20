@@ -10,7 +10,7 @@ import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
  * external input and internal functionality implementation
  */
 public abstract class Command {
-    protected HashMap<String, String> args;
+    protected HashMap<String, Object> args;
     protected DatabaseHandler dbHandler;
     
     public Command(){}
@@ -21,9 +21,9 @@ public abstract class Command {
      * 	LinkedHashMap preserve order of insertion so it will preserve this order when parsing to JSON
      * @throws SQLException 
      */
-    public abstract void execute() throws SQLException;
+    public abstract Object execute() throws SQLException, NoSuchMethodException, IllegalAccessException;
 
-	public void setArgs(HashMap<String, String> args) {
+	public void setArgs(HashMap<String, Object> args) {
 		this.args = args;
 	}
 
