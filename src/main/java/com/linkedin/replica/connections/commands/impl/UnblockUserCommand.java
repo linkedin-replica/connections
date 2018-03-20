@@ -1,8 +1,8 @@
-package commands.impl;
+package com.linkedin.replica.connections.commands.impl;
 
 import java.sql.SQLException;
 
-import commands.Command;
+import com.linkedin.replica.connections.commands.Command;
 
 /**
  *  Implementation of command design patterns for unblock user functionality

@@ -1,27 +1,26 @@
-package services;
+package com.linkedin.replica.connections.services;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Properties;
 
-import commands.Command;
-import config.Config;
-import databaseHandlers.DatabaseHandler;
+import com.linkedin.replica.connections.commands.Command;
+import com.linkedin.replica.connections.config.Config;
+import com.linkedin.replica.connections.databaseHandlers.DatabaseHandler;
 
 
 /**
- * Connections Service is responsible for taking input from controller, reading commands config file to 
+ * Connections Service is responsible for taking input from controller, reading com.linkedin.replica.connections.commands com.linkedin.replica.connections.config file to
  * get specific command responsible for handling input request and also get DatabaseHandler name
  * Associated with this command 
  * 
  * It will call command execute method after passing to its DatabaseHandler
  */
 public class ConnectionsService {
-	// load config file
+	// load com.linkedin.replica.connections.config file
 	private Properties prop;
 	private String commandsPackageName;
 	private String dbHandlerPackageName;
@@ -29,8 +28,8 @@ public class ConnectionsService {
 	public ConnectionsService() throws FileNotFoundException, IOException{
 		prop = new Properties();
 		prop.load(new FileInputStream(Config.getInstance().getCommandConfigPath()));
-		commandsPackageName = "commands.impl";
-		dbHandlerPackageName = "databaseHandlers.impl";
+		commandsPackageName = "com.linkedin.replica.connections.commands.impl";
+		dbHandlerPackageName = "com.linkedin.replica.connections.databaseHandlers.impl";
 	}
 		
 	public  void serve(String commandName, HashMap<String, String> args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{

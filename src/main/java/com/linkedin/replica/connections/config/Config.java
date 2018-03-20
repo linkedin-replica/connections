@@ -1,4 +1,4 @@
-package config;
+package com.linkedin.replica.connections.config;
 
 public class Config {
 	private String databaseConfigPath;

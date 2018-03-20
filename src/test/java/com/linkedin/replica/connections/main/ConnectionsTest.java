@@ -1,10 +1,9 @@
 package com.linkedin.replica.connections.main;
 
 import com.linkedin.replica.connections.databaseHandlers.DatabaseSeed;
-import config.DatabaseConnections;
-import main.Connections;
+import com.linkedin.replica.connections.config.DatabaseConnections;
 import org.junit.*;
-import services.ConnectionsService;
+import com.linkedin.replica.connections.services.ConnectionsService;
 import java.io.IOException;
 import java.sql.*;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package config;
+package com.linkedin.replica.connections.config;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,7 +13,7 @@ import java.util.Properties;
 //import com.arangodb.ArangoDB;
 
 /**
- *  DatabaseConnection is a singleton class responsible for reading database config file and initiate 
+ *  DatabaseConnection is a singleton class responsible for reading database com.linkedin.replica.connections.config file and initiate
  *  connections to databases
  */
 public class DatabaseConnections {
