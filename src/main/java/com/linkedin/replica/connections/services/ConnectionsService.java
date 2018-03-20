@@ -27,7 +27,7 @@ public class ConnectionsService {
 	
 	public ConnectionsService() throws FileNotFoundException, IOException{
 		prop = new Properties();
-		prop.load(new FileInputStream(Configuration.getInstance().getCommandConfigPath()));
+		prop.load(new FileInputStream(Configuration.getInstance().getCommandsConfigPath()));
 		commandsPackageName = "com.linkedin.replica.connections.commands.impl";
 		dbHandlerPackageName = "com.linkedin.replica.connections.database.handlers.impl";
 	}

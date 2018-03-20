@@ -9,8 +9,8 @@
         <module name="connections" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="connections" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="connections" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="InspectionProjectProfileManager">
@@ -228,12 +228,34 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Errors" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Scalable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="Maven: com.google.code.gson:gson:2.8.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.2/gson-2.8.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.2/gson-2.8.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: io.netty:netty-all:4.1.21.Final">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.21.Final/netty-all-4.1.21.Final.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.21.Final/netty-all-4.1.21.Final-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.21.Final/netty-all-4.1.21.Final-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: junit:junit:4.0">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.0/junit-4.0.jar!/" />
