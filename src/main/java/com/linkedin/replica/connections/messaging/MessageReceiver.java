@@ -104,4 +104,9 @@ public class MessageReceiver {
 
         return consumer;
     }
+
+    public void closeConnection() throws IOException, TimeoutException {
+        channel.close();
+        connection.close();
+    }
 }

@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 
 public class MainTest {
     private static ConnectionsService service;
-    static Connection mySqlConnection;
+    public static Connection mySqlConnection;
 
     @BeforeClass
     public static void setup() throws SQLException, IOException, ClassNotFoundException {
@@ -143,4 +143,6 @@ public class MainTest {
         statement = mySqlConnection.createStatement();
         statement.executeUpdate(query);
     }
+
+
 }
