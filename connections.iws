@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c96b146-0ffd-4949-812b-026bc0e81fee" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/connections.iws" afterPath="$PROJECT_DIR$/connections.iws" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/Command.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/Command.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AcceptFriendCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AcceptFriendCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AddFriendCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AddFriendCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/BlockUserCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/BlockUserCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/ControllerCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/ControllerCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnblockUserCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnblockUserCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnfriendCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/UnfriendCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/RequestProcessingHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/RequestProcessingHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/commands.config" afterPath="$PROJECT_DIR$/src/main/resources/commands.config" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database.config" afterPath="$PROJECT_DIR$/src/main/resources/database.config" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/MainTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/MainTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/messaging/ServicesMessagesTest.java" afterPath="$PROJECT_DIR$/src/test/java/messaging/ServicesMessagesTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestProcessingHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RequestProcessingHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/RequestProcessingHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
@@ -56,6 +43,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageReceiver.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="69" column="78" lean-forward="false" selection-start-line="69" selection-start-column="78" selection-end-line="69" selection-end-column="78" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -142,7 +139,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/controller.config" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/Workers.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/controller/handlers/ResponseEncoderHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/controller/handlers/RequestDecoderHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/ConnectionsTest.java" />
@@ -163,6 +159,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/AddFriendCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/config/Configuration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/RequestProcessingHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java" />
       </list>
     </option>
   </component>
@@ -274,6 +271,15 @@
               <item name="connections" type="462c0819:PsiDirectoryNode" />
               <item name="commands" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connections" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connections2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="connections" type="462c0819:PsiDirectoryNode" />
+              <item name="messaging" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="connections" type="b2602c69:ProjectViewProjectNode" />
@@ -855,13 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-212">
-          <caret line="68" column="72" lean-forward="false" selection-start-line="68" selection-start-column="72" selection-end-line="68" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/commands/impl/testCommand.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/RequestDecoderHandler.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1107,6 +1106,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="69" column="78" lean-forward="false" selection-start-line="69" selection-start-column="78" selection-end-line="69" selection-end-column="78" />
+          <folding />
         </state>
       </provider>
     </entry>

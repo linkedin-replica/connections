@@ -67,8 +67,8 @@ public class MessageReceiver {
                         LinkedHashMap<String, Object> response = new LinkedHashMap<String, Object>();
                         try {
                             Object results = new ConnectionsService().serve(commandName, args);
-
-                            response.put("statusCode", 200);
+                            // 201 since only put and update requests are made
+                            response.put("statusCode", 201);
                             if(results != null)
                                 response.put("results", results);
 
