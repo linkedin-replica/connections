@@ -1,7 +1,7 @@
 package com.linkedin.replica.connections.main;
 
 import com.linkedin.replica.connections.database.DatabaseSeed;
-import com.linkedin.replica.connections.database.DatabaseConnections;
+import com.linkedin.replica.connections.database.DatabaseConnection;
 import org.junit.*;
 import com.linkedin.replica.connections.services.ConnectionsService;
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class MainTest {
         DatabaseSeed dbseed = new DatabaseSeed();
         dbseed.insertUsers();
         dbseed.insertFriendRequest();
-        mySqlConnection = DatabaseConnections.getInstance().getMysqlConn();
+        mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
 
     }
 

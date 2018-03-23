@@ -16,7 +16,7 @@ public class DatabaseSeed {
     MySqlHandler mySqlHandler;
 
     public DatabaseSeed() throws SQLException, IOException, ClassNotFoundException {
-        mySqlConnection = DatabaseConnections.getInstance().getMysqlConn();
+        mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
         br = new BufferedReader(new FileReader("src/test/java/resources/users"));
         mySqlHandler = new MySqlHandler();
     }

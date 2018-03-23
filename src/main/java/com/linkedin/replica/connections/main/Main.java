@@ -1,7 +1,7 @@
 package com.linkedin.replica.connections.main;
 
 import com.linkedin.replica.connections.config.Configuration;
-import com.linkedin.replica.connections.database.DatabaseConnections;
+import com.linkedin.replica.connections.database.DatabaseConnection;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,11 +21,11 @@ public class Main {
 		
 		// create singleton instance of DatabaseConnection class that is responsible for intiating connections
 		// with databases
-		DatabaseConnections.getInstance();
+		DatabaseConnection.getInstance();
 	}
 	
 	public static void shutdown() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
-		DatabaseConnections.getInstance().closeConnections();
+		DatabaseConnection.getInstance().closeConnections();
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException {
