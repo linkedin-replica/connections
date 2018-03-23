@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c96b146-0ffd-4949-812b-026bc0e81fee" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/commands.config" afterPath="$PROJECT_DIR$/src/main/resources/commands.config" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.config" afterPath="$PROJECT_DIR$/src/main/resources/database.config" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,11 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageReceiver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessageReceiver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
               <caret line="69" column="78" lean-forward="false" selection-start-line="69" selection-start-column="78" selection-end-line="69" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConnectionsService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="32" column="51" lean-forward="false" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -594,8 +605,8 @@
     <history-entry file="All_in_connections - 2018.03.23 at 18h 21m 17s.xml">
       <configuration name="All in connections" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2018.03.23 at 18h 04m 37s.xml">
-      <configuration name="MainTest" configurationId="JUnit" />
+    <history-entry file="All_in_connections - 2018.03.23 at 18h 26m 50s.xml">
+      <configuration name="All in connections" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RequestDecoderHandlerTest - 2018.03.23 at 18h 11m 17s.xml">
       <configuration name="RequestDecoderHandlerTest" configurationId="JUnit" />
@@ -1017,14 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="32" column="51" lean-forward="false" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/config/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -1113,6 +1116,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="69" column="78" lean-forward="false" selection-start-line="69" selection-start-column="78" selection-end-line="69" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/services/ConnectionsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="32" column="51" lean-forward="false" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
           <folding />
         </state>
       </provider>
