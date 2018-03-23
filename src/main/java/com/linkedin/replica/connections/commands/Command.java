@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
+import com.linkedin.replica.connections.exceptions.ConnectionsException;
 
 /**
  * Command is an abstract class responsible for handling specific request and it communicates between
@@ -28,6 +29,14 @@ public abstract class Command {
 	public void setDbHandler(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
 	}
+
+    protected void validateArgs(String[] requiredArgs) {
+        for(String arg: requiredArgs)
+            if(!args.containsKey(arg)) {
+                String exceptionMsg = String.format("Cannot execute command. %s argument is missing", arg);
+                throw new ConnectionsException(exceptionMsg);
+            }
+    }
     
     
 }
