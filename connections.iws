@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c96b146-0ffd-4949-812b-026bc0e81fee" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/messaging/ClientMessagesTest.java" />
-      <change beforePath="$PROJECT_DIR$/connections.iws" afterPath="$PROJECT_DIR$/connections.iws" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java" afterPath="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/messaging/MessageReceiver.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app.config" afterPath="$PROJECT_DIR$/src/main/resources/app.config" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/commands.config" afterPath="$PROJECT_DIR$/src/main/resources/commands.config" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/database.config" afterPath="$PROJECT_DIR$/src/main/resources/database.config" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/MainTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/MainTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/messaging/ServicesMessagesTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,16 +17,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientMessagesTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientMessagesTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/messaging/ClientMessagesTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+            <state relative-caret-position="319">
+              <caret line="125" column="0" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2900#2908#0" expanded="true" />
                 <element signature="e#4579#4587#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseSeed.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,7 +143,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/DatabaseConnections.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/handlers/impl/DatabaseHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/database/DatabaseConnections.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/handlers/ResponseEncoderHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/controller/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/linkedin/replica/connections/exceptions/ConnectionsException.java" />
@@ -170,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/app.config" />
         <option value="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/main/MainTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/messaging/ClientMessagesTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java" />
       </list>
     </option>
   </component>
@@ -620,11 +625,11 @@
     <history-entry file="All_in_connections - 2018.03.23 at 21h 42m 10s.xml">
       <configuration name="All in connections" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_connections - 2018.03.23 at 21h 55m 17s.xml">
+      <configuration name="All in connections" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="ClientMessagesTest - 2018.03.23 at 21h 41m 52s.xml">
       <configuration name="ClientMessagesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ClientMessagesTest_testSendMessage - 2018.03.23 at 21h 16m 27s.xml">
-      <configuration name="ClientMessagesTest.testSendMessage" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ClientMessagesTest_testSendMessage - 2018.03.23 at 21h 18m 31s.xml">
       <configuration name="ClientMessagesTest.testSendMessage" configurationId="JUnit" />
@@ -650,6 +655,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="260" y="53" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -659,12 +665,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.277388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.277388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1065,14 +1071,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="46" column="9" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="46" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/resources/users">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1117,13 +1115,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/messaging/ClientMessagesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+        <state relative-caret-position="319">
+          <caret line="125" column="0" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2900#2908#0" expanded="true" />
             <element signature="e#4579#4587#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/replica/connections/database/DatabaseSeed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
