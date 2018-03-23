@@ -16,7 +16,7 @@ public class DatabaseSeed {
     MySqlHandler mySqlHandler;
 
     public DatabaseSeed() throws SQLException, IOException, ClassNotFoundException {
-        mySqlConnection = DatabaseConnections.getInstance().getMysqlConn();
+        mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
         br = new BufferedReader(new FileReader("src/test/java/resources/users"));
         mySqlHandler = new MySqlHandler();
     }
@@ -27,11 +27,11 @@ public class DatabaseSeed {
             String userID = st.nextToken();
             String email = st.nextToken();
             String password = st.nextToken();
-            String query = "{CALL Insert_User(?,?,?)}";
+            String query = "{CALL insert_user(?,?,?)}";
             CallableStatement stmt = mySqlConnection.prepareCall(query);
-            stmt.setString(1, userID);
-            stmt.setString(2, email);
-            stmt.setString(3, password);
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            stmt.setString(3, userID);
             stmt.executeQuery();
         }
     }
