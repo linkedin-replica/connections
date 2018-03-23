@@ -13,7 +13,9 @@ public abstract class Command {
     protected HashMap<String, Object> args;
     protected DatabaseHandler dbHandler;
     
-    public Command(){}
+    public Command(HashMap<String, Object> args){
+    	this.args = args;
+	}
     
     /**
      * Execute the command
@@ -22,10 +24,6 @@ public abstract class Command {
      * @throws SQLException 
      */
     public abstract Object execute() throws SQLException, NoSuchMethodException, IllegalAccessException;
-
-	public void setArgs(HashMap<String, Object> args) {
-		this.args = args;
-	}
 
 	public void setDbHandler(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;

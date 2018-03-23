@@ -23,7 +23,9 @@ public class ControllerCommand extends Command {
     private static Configuration config = Configuration.getInstance();
 
     public ControllerCommand(HashMap<String, Object> args) {
-        this.setArgs(args);
+
+        super(args);
+
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.linkedin.replica.connections.database.DatabaseConnection;
 import org.junit.*;
 import com.linkedin.replica.connections.services.ConnectionsService;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.HashMap;
 
@@ -27,10 +28,10 @@ public class MainTest {
     }
 
     @Test
-    public void testAddFriend() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public void testAddFriend() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         String user1ID = "e4def870-f331-4fb5-a44c-967592cf5b42"; //anwar
         String user2ID = "ff810a3f-07fc-4d35-bc84-98aed333b043"; // hatem
-        String commandName = "addFriend";
+        String commandName = "connections.addFriend";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
@@ -47,7 +48,7 @@ public class MainTest {
     }
 
     @Test
-    public void testAcceptFriendRequest() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public void testAcceptFriendRequest() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         String user1ID = "54f8a99f-0f23-4bdc-a899-90480d7d4032"; //nada
         String user2ID = "da7b6939-0f5c-404c-b317-8e5d21b05204"; //yara
         int v = user1ID.compareTo(user2ID);
@@ -56,7 +57,7 @@ public class MainTest {
             user1ID = user2ID;
             user2ID = temp;
         }
-        String commandName = "acceptFriend";
+        String commandName = "connections.acceptFriend";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
@@ -72,10 +73,10 @@ public class MainTest {
     }
 
     @Test
-    public void testBlockUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public void testBlockUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         String user1ID = "064ff6df-63e2-456c-9d18-4184073d7a6d"; //esraa
         String user2ID = "55f4ebbb-606e-4e49-9604-830491c17d73"; //baher
-        String commandName = "blockUser";
+        String commandName = "connections.blockUser";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
@@ -91,10 +92,10 @@ public class MainTest {
     }
 
     @Test
-    public void testUnblockUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public void testUnblockUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         String user1ID = "064ff6df-63e2-456c-9d18-4184073d7a6d"; //esraa
         String user2ID = "55f4ebbb-606e-4e49-9604-830491c17d73"; //baher
-        String commandName = "unblockUser";
+        String commandName = "connections.unblockUser";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
@@ -110,10 +111,10 @@ public class MainTest {
     }
 
     @Test
-    public void testUnfriendUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+    public void testUnfriendUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         String user1ID = "e4def870-f331-4fb5-a44c-967592cf5b42";
         String user2ID = "ff810a3f-07fc-4d35-bc84-98aed333b043";
-        String commandName = "unfriendUser";
+        String commandName = "connections.unfriendUser";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userID1", user1ID);
         parameters.put("userID2", user2ID);
