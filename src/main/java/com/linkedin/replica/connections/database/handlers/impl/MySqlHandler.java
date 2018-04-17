@@ -8,8 +8,9 @@ import java.sql.SQLException;
 
 import com.linkedin.replica.connections.database.DatabaseConnections;
 import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
+import com.linkedin.replica.connections.database.handlers.MySQL;
 
-public class MySqlHandler implements DatabaseHandler {
+public class MySqlHandler extends MySQL {
 	
 	Connection mySqlConnection;
 	
@@ -54,30 +55,5 @@ public class MySqlHandler implements DatabaseHandler {
 		stmt.setInt(3, status);
 		stmt.executeQuery();
 	}
-
-
-	public void acceptFriendRequest(String userID1, String userID2) throws SQLException {
-		if(userID1.compareTo(userID2) > 0){
-			String temp = userID1;
-			userID1 = userID2;
-			userID2 = temp;
-		}
-
-		String query = "{CALL accept_friend_request(?,?)}";
-		CallableStatement stmt = mySqlConnection.prepareCall(query);
-		stmt.setString(1, userID1);
-		stmt.setString(2, userID2);
-		stmt.executeQuery();
-	}
-
-
-	public void unfriendUser(String userID1, String userID2) throws SQLException {
-		String query = "{CALL delete_user_friend_with_user(?,?)}";
-		CallableStatement stmt = mySqlConnection.prepareCall(query);
-		stmt.setString(1, userID1);
-		stmt.setString(2, userID2);
-		stmt.executeQuery();	
-	}
-
 
 }
