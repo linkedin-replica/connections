@@ -102,6 +102,10 @@ public class Configuration {
 		}
 	}
 
+	public String getArangoConfigProp(String key) {
+		return arangoConfig.getProperty(key);
+	}
+
 	private void writeConfig(String filePath, Properties properties) throws IOException{
 		// delete configuration file and then re-write it
 		Files.deleteIfExists(Paths.get(filePath));
@@ -110,7 +114,4 @@ public class Configuration {
 		out.close();
 	}
 
-	public String getArangoConfigPath() {
-		return arangoConfigPath;
-	}
 }

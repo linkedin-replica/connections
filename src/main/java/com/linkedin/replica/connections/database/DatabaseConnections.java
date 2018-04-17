@@ -1,5 +1,6 @@
 package com.linkedin.replica.connections.database;
 
+import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
 
 import java.io.FileInputStream;
@@ -24,12 +25,15 @@ public class DatabaseConnections {
 	
 	private static DatabaseConnections instance;
 	private Properties properties;
-	
+	private Configuration config;
+	private ArangoDB arangodb;
+
 	private DatabaseConnections() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
 		properties = new Properties();
+		config = Configuration.getInstance();
 		properties.load(new FileInputStream(Configuration.getInstance().getDatabaseConfigPath()));
 		mysqlConn = getNewMysqlDB();
-
+		initializeArangoDB();
 //		redis = new Jedis();
 	}
 	
@@ -55,7 +59,22 @@ public class DatabaseConnections {
 		}	
 		return instance;
 	}
-	
+
+	public ArangoDB getArangodb() {
+		return arangodb;
+	}
+
+	/**
+	 * Instantiate ArangoDB
+	 * @return
+	 */
+	private void initializeArangoDB() {
+		arangodb = new ArangoDB.Builder()
+				.user(config.getArangoConfigProp("arangodb.user"))
+				.password(config.getArangoConfigProp("arangodb.password"))
+				.build();
+	}
+
 	/**
 	 * Implement the clone() method and throw an exception so that the singleton cannot be cloned.
 	 */
