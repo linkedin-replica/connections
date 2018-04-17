@@ -2,7 +2,7 @@ package com.linkedin.replica.connections.database.handlers.impl;
 
 import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
-import com.linkedin.replica.connections.database.DatabaseConnections;
+import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.database.handlers.AddingRemovingFriends;
 import com.linkedin.replica.connections.models.User;
 import com.linkedin.replica.connections.models.UserInFriendsList;
@@ -19,8 +19,8 @@ public class AddingRemovingFriendsHandler extends AddingRemovingFriends {
     private ArangoDB arangoDB;
     private String dbName;
     public AddingRemovingFriendsHandler() throws SQLException, IOException, ClassNotFoundException {
-        mySqlConnection = DatabaseConnections.getInstance().getMysqlConn();
-        arangoDB = DatabaseConnections.getInstance().getArangodb();
+        mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
+        arangoDB = DatabaseConnection.getInstance().getArangodb();
         dbName = Configuration.getInstance().getArangoConfigProp("db.name");
     }
 

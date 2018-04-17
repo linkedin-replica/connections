@@ -2,7 +2,7 @@ package com.linkedin.replica.connections.database.handlers.impl;
 
 import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
-import com.linkedin.replica.connections.database.DatabaseConnections;
+import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.database.handlers.GetFriendsList;
 import com.linkedin.replica.connections.models.User;
 import com.linkedin.replica.connections.models.UserInFriendsList;
@@ -17,7 +17,7 @@ public class GetFriendsListHandler extends GetFriendsList  {
     private String dbName;
 
     public GetFriendsListHandler() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException {
-        arangoDB = DatabaseConnections.getInstance().getArangodb();
+        arangoDB = DatabaseConnection.getInstance().getArangodb();
         dbName = Configuration.getInstance().getArangoConfigProp("db.name");
     }
 

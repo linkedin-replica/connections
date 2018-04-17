@@ -19,16 +19,17 @@ import java.util.Properties;
  *  DatabaseConnection is a singleton class responsible for reading database com.linkedin.replica.connections.config file and initiate
  *  connections to databases
  */
-public class DatabaseConnections {
+public class DatabaseConnection {
 	private Connection mysqlConn;
 //	private Jedis redis;
 	
-	private static DatabaseConnections instance;
+	private static DatabaseConnection instance;
 	private Properties properties;
 	private Configuration config;
 	private ArangoDB arangodb;
 
-	private DatabaseConnections() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
+
+	private DatabaseConnection() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
 		properties = new Properties();
 		config = Configuration.getInstance();
 		properties.load(new FileInputStream(Configuration.getInstance().getDatabaseConfigPath()));
@@ -49,11 +50,11 @@ public class DatabaseConnections {
 	 * @throws FileNotFoundException 
 	 * @throws ClassNotFoundException 
 	 */
-	public static DatabaseConnections getInstance() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
+	public static DatabaseConnection getInstance() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
 		if(instance == null){
-			synchronized (DatabaseConnections.class) {
+			synchronized (DatabaseConnection.class) {
 				if(instance == null){
-					instance = new DatabaseConnections();
+					instance = new DatabaseConnection();
 				}
 			}
 		}	

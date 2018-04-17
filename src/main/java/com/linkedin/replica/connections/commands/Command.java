@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
+import com.linkedin.replica.connections.exceptions.ConnectionsException;
 
 /**
  * Command is an abstract class responsible for handling specific request and it communicates between
@@ -13,7 +14,9 @@ public abstract class Command {
     protected HashMap<String, Object> args;
     protected DatabaseHandler dbHandler;
     
-    public Command(){}
+    public Command(HashMap<String, Object> args){
+    	this.args = args;
+	}
     
     /**
      * Execute the command
@@ -23,13 +26,17 @@ public abstract class Command {
      */
     public abstract Object execute() throws SQLException, NoSuchMethodException, IllegalAccessException;
 
-	public void setArgs(HashMap<String, Object> args) {
-		this.args = args;
-	}
-
 	public void setDbHandler(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
 	}
+
+    protected void validateArgs(String[] requiredArgs) {
+        for(String arg: requiredArgs)
+            if(!args.containsKey(arg)) {
+                String exceptionMsg = String.format("Cannot execute command. %s argument is missing", arg);
+                throw new ConnectionsException(exceptionMsg);
+            }
+    }
     
     
 }

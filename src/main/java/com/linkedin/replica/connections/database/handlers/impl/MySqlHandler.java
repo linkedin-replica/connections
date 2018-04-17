@@ -6,7 +6,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.linkedin.replica.connections.database.DatabaseConnections;
+import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
 import com.linkedin.replica.connections.database.handlers.MySQL;
 
@@ -15,7 +15,7 @@ public class MySqlHandler extends MySQL {
 	Connection mySqlConnection;
 	
 	public MySqlHandler() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
-		mySqlConnection = DatabaseConnections.getInstance().getMysqlConn();
+		mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
 	}
 
 
