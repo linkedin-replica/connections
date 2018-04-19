@@ -26,6 +26,7 @@ hs_err_pid*
 target/
 *.iws
 *.ipr
+*.iml
 
 #Eclipse
 .project
