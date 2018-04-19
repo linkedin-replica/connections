@@ -16,7 +16,7 @@ public class UnfollowCompanyCommand extends Command {
         String userId = (String) args.get("userId");
         String companyId = (String) args.get("companyId");
         FollowingCompaniesHandler dbHandler = (FollowingCompaniesHandler) this.dbHandler;
-        dbHandler.followCompany(userId, companyId);
+        dbHandler.unFollowCompany(userId, companyId);
         return null;
     }
 }
