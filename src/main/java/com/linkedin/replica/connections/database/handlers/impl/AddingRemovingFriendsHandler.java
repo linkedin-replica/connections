@@ -38,27 +38,26 @@ public class AddingRemovingFriendsHandler extends AddingRemovingFriends {
         stmt.executeQuery();
 
         String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
-
         // get users
-        User user1 = arangoDB.db(dbName).collection(collectionName).getDocument(userID1, User.class);
-        User user2 = arangoDB.db(dbName).collection(collectionName).getDocument(userID2, User.class);
+//        User user1 = arangoDB.db(dbName).collection(collectionName).getDocument(userID1, User.class);
+//        User user2 = arangoDB.db(dbName).collection(collectionName).getDocument(userID2, User.class);
 
-        UserInFriendsList userFL1 = new UserInFriendsList(user1);
-        UserInFriendsList userFL2 = new UserInFriendsList(user2);
+//        UserInFriendsList userFL1 = new UserInFriendsList(user1);
+//        UserInFriendsList userFL2 = new UserInFriendsList(user2);
 
         // add user2 in user1's friendsList
-        query = "FOR u IN " + collectionName + "\n\t FILTER u.userId == @id LET newFriends = PUSH(u.friendsList, @newFriend) UPDATE u WITH{ friends: newFriends } IN " + collectionName;
+        query = "FOR u IN " + collectionName + " FILTER u.userId == @id LET newFriends = PUSH(u.friendsList, @newFriend) UPDATE u WITH{ friendsList : newFriends } IN " + collectionName;
         Map<String, Object> bindVars = new HashMap<String, Object>();
         bindVars.put("id", userID1);
-        bindVars.put("newFriend", userFL2);
-        arangoDB.db(dbName).query(query, bindVars, null, User.class);
+        bindVars.put("newFriend", userID2);
+        arangoDB.db(dbName).query(query, bindVars, null, null);
 
         // add user1 in user2's friendsList
-        query = "FOR u IN " + collectionName + "\n\t FILTER u.userId == @id LET newFriends = PUSH(u.friendsList, @newFriend) UPDATE u WITH{ friends: newFriends } IN " + collectionName;
+        query = "FOR u IN " + collectionName + " FILTER u.userId == @id LET newFriends = PUSH(u.friendsList, @newFriend) UPDATE u WITH{ friendsList : newFriends } IN " + collectionName;
         bindVars = new HashMap<String, Object>();
         bindVars.put("id", userID2);
-        bindVars.put("newFriend", userFL1);
-        arangoDB.db(dbName).query(query, bindVars, null, User.class);
+        bindVars.put("newFriend", userID1);
+        arangoDB.db(dbName).query(query, bindVars, null, null);
     }
 
     public void unfriendUser(String userID1, String userID2) throws SQLException {
@@ -71,24 +70,24 @@ public class AddingRemovingFriendsHandler extends AddingRemovingFriends {
         String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
 
         // get users
-        User user1 = arangoDB.db(dbName).collection(collectionName).getDocument(userID1, User.class);
-        User user2 = arangoDB.db(dbName).collection(collectionName).getDocument(userID2, User.class);
+//        User user1 = arangoDB.db(dbName).collection(collectionName).getDocument(userID1, User.class);
+//        User user2 = arangoDB.db(dbName).collection(collectionName).getDocument(userID2, User.class);
 
-        UserInFriendsList userFL1 = new UserInFriendsList(user1);
-        UserInFriendsList userFL2 = new UserInFriendsList(user2);
+//        UserInFriendsList userFL1 = new UserInFriendsList(user1);
+//        UserInFriendsList userFL2 = new UserInFriendsList(user2);
 
         // remove user2 from user1's friendsList
-        query = "FOR u IN " + collectionName + "\n\t FILTER u.userId == @id LET newFriends = REMOVE_VALUE(u.friendsList, @newFriend) UPDATE u WITH{ friends: newFriends } IN " + collectionName;
+        query = "FOR u IN " + collectionName + "\n\t FILTER u.userId == @id LET newFriends = REMOVE_VALUE(u.friendsList, @newFriend) LET newNumConnections = (u.numConnections - 1) UPDATE u WITH{ friendsList : newFriends } IN " + collectionName;
         Map<String, Object> bindVars = new HashMap<String, Object>();
         bindVars.put("id", userID1);
-        bindVars.put("newFriend", userFL2);
+        bindVars.put("newFriend", userID2);
         arangoDB.db(dbName).query(query, bindVars, null, User.class);
 
         // remove user1 from user2's friendsList
-        query = "FOR u IN " + collectionName + "\n\t FILTER u.userId == @id LET newFriends = REMOVE_VALUE(u.friendsList, @newFriend) UPDATE u WITH{ friends: newFriends } IN " + collectionName;
+        query = "FOR u IN " + collectionName + "\n\t FILTER u.userId == @id LET newFriends = REMOVE_VALUE(u.friendsList, @newFriend) LET newNumConnections = (u.numConnections - 1) UPDATE u WITH{ friendsList : newFriends } IN " + collectionName;
         bindVars = new HashMap<String, Object>();
         bindVars.put("id", userID2);
-        bindVars.put("newFriend", userFL1);
+        bindVars.put("newFriend", userID1);
         arangoDB.db(dbName).query(query, bindVars, null, User.class);
     }
 }

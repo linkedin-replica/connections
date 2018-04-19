@@ -1,30 +1,41 @@
 package com.linkedin.replica.connections.main;
 
+import com.arangodb.ArangoCursor;
+import com.arangodb.ArangoDB;
+import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.DatabaseSeed;
 import com.linkedin.replica.connections.database.DatabaseConnection;
 import org.junit.*;
 import com.linkedin.replica.connections.services.ConnectionsService;
+
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
 public class MainTest {
     private static ConnectionsService service;
-    public static Connection mySqlConnection;
-
+    private static Connection mySqlConnection;
+    private static ArangoDB arangoDB;
+    private static Configuration config;
+    private static String dbName, userCollectionName;
     @BeforeClass
     public static void setup() throws SQLException, IOException, ClassNotFoundException {
-        String[] args = {"src/main/resources/app.config", "src/main/resources/database.config" , "src/main/resources/commands.config", "src/main/resources/controller.config"};
+        String[] args = {"src/main/resources/app.config", "src/main/resources/database.test.config" , "src/main/resources/commands.config", "src/main/resources/controller.config"};
         Main.start(args);
         service = new ConnectionsService();
         DatabaseSeed dbseed = new DatabaseSeed();
+        mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
+        arangoDB = DatabaseConnection.getInstance().getArangodb();
+        config = Configuration.getInstance();
+        dbName = config.getArangoConfigProp("db.name");
+        userCollectionName = config.getArangoConfigProp("collection.users.name");
+        clean();
         dbseed.insertUsers();
         dbseed.insertFriendRequest();
-        mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
-
     }
 
     @Test
@@ -70,6 +81,31 @@ public class MainTest {
         while(resultSet.next())
             size++;
         assertTrue(size != 0);
+        query = "FOR u IN " + userCollectionName + " FILTER u.userId == @id return u.friendsList";
+        Map<String, Object> bindVars = new HashMap();
+        bindVars.put("id", user1ID);
+        ArangoCursor cursor = arangoDB.db(dbName).query(query, bindVars, null, String.class);
+        size = 0;
+        while(cursor.hasNext()) {
+            String curr = (String) cursor.next();
+            if(curr.trim().equals("") || curr.trim().isEmpty() || curr.trim().equals("[]"))
+                continue;
+            size++;
+        }
+        assertTrue(size != 0);
+
+        query = "FOR u IN " + userCollectionName + " FILTER u.userId == @id return u.friendsList";
+        bindVars.put("id", user2ID);
+        cursor = arangoDB.db(dbName).query(query, bindVars, null, String.class);
+        size = 0;
+        while(cursor.hasNext()) {
+            String curr = (String) cursor.next();
+            if(curr.trim().equals("") || curr.trim().isEmpty() || curr.trim().equals("[]"))
+                continue;
+            size++;
+        }
+        assertTrue(size != 0);
+
     }
 
     @Test
@@ -127,6 +163,30 @@ public class MainTest {
         while(resultSet.next())
             size++;
         assertTrue(size == 0);
+        query = "FOR u IN " + userCollectionName + " FILTER u.userId == @id return u.friendsList";
+        Map<String, Object> bindVars = new HashMap();
+        bindVars.put("id", user1ID);
+        ArangoCursor cursor = arangoDB.db(dbName).query(query, bindVars, null, String.class);
+        size = 0;
+        while(cursor.hasNext()) {
+            String curr = (String) cursor.next();
+            if(curr.trim().equals("") || curr.trim().isEmpty() || curr.trim().equals("[]"))
+                continue;
+            size++;
+        }
+        assertTrue(size == 0);
+
+        query = "FOR u IN " + userCollectionName + " FILTER u.userId == @id return u.friendsList";
+        bindVars.put("id", user2ID);
+        cursor = arangoDB.db(dbName).query(query, bindVars, null, String.class);
+        size = 0;
+        while(cursor.hasNext()) {
+            String curr = (String) cursor.next();
+            if(curr.trim().equals("") || curr.trim().isEmpty() || curr.trim().equals("[]"))
+                continue;
+            size++;
+        }
+        assertTrue(size == 0);
     }
 
     @AfterClass
@@ -142,6 +202,8 @@ public class MainTest {
         query = "delete from users";
         statement = mySqlConnection.createStatement();
         statement.executeUpdate(query);
+
+        arangoDB.db(dbName).collection(userCollectionName).truncate();
     }
 
 

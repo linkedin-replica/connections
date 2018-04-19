@@ -1,6 +1,9 @@
 package com.linkedin.replica.connections.database;
 
+import com.arangodb.ArangoDB;
+import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.handlers.impl.MySqlHandler;
+import com.linkedin.replica.connections.models.User;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,11 +17,17 @@ public class DatabaseSeed {
     Connection mySqlConnection;
     BufferedReader br;
     MySqlHandler mySqlHandler;
-
+    ArangoDB arangoDB;
+    String dbName;
+    String collectionName;
     public DatabaseSeed() throws SQLException, IOException, ClassNotFoundException {
         mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
         br = new BufferedReader(new FileReader("src/test/java/resources/users"));
         mySqlHandler = new MySqlHandler();
+
+        arangoDB = DatabaseConnection.getInstance().getArangodb();
+        dbName = Configuration.getInstance().getArangoConfigProp("db.name");
+        collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
     }
 
     public void insertUsers() throws IOException, SQLException {
@@ -33,6 +42,10 @@ public class DatabaseSeed {
             stmt.setString(2, password);
             stmt.setString(3, userID);
             stmt.executeQuery();
+
+            User user = new User();
+            user.setUserId(userID);
+            arangoDB.db(dbName).collection(collectionName).insertDocument(user);
         }
     }
 

@@ -33,17 +33,17 @@ public class Configuration {
 	private static Configuration instance;
 
 	private Configuration(String appConfigPath, String databaseConfigPath, String arangoConfigPath, String commandsConfigPath, String controllerConfigPath) throws IOException {
-		populateWithConfig(appConfigPath, appConfig);
-		populateWithConfig(databaseConfigPath, databaseConfig);
-		populateWithConfig(arangoConfigPath, arangoConfig);
-		populateWithConfig(commandsConfigPath, commandConfig);
-		populateWithConfig(controllerConfigPath, controllerConfig);
-
 		this.appConfigPath = appConfigPath;
 		this.databaseConfigPath = databaseConfigPath;
 		this.arangoConfigPath = arangoConfigPath;
 		this.commandsConfigPath = commandsConfigPath;
 		this.controllerConfigPath = controllerConfigPath;
+
+		populateWithConfig(appConfigPath, appConfig);
+		populateWithConfig(databaseConfigPath, databaseConfig);
+		populateWithConfig(arangoConfigPath, arangoConfig);
+		populateWithConfig(commandsConfigPath, commandConfig);
+		populateWithConfig(controllerConfigPath, controllerConfig);
 	}
 
 	public static Configuration getInstance() {

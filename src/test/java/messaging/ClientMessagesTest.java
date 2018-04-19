@@ -146,6 +146,10 @@ public class ClientMessagesTest {
         statement = mySqlConnection.createStatement();
         statement.executeUpdate(query);
 
+        query = "delete from user_blocked_user";
+        statement = mySqlConnection.createStatement();
+        statement.executeUpdate(query);
+
         DatabaseConnection.getInstance().closeConnections();
     }
 }
