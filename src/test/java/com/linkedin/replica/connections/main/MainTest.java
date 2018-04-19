@@ -33,9 +33,9 @@ public class MainTest {
         config = Configuration.getInstance();
         dbName = config.getArangoConfigProp("db.name");
         userCollectionName = config.getArangoConfigProp("collection.users.name");
-        clean();
-        dbseed.insertUsers();
-        dbseed.insertFriendRequest();
+//        clean();
+//        dbseed.insertUsers();
+//        dbseed.insertFriendRequest();
     }
 
     @Test
@@ -189,7 +189,7 @@ public class MainTest {
         assertTrue(size == 0);
     }
 
-    @AfterClass
+
     public static void clean() throws SQLException {
         String query = "delete from user_friends_with_user";
         Statement statement = mySqlConnection.createStatement();

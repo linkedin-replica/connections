@@ -6,7 +6,6 @@ public class UserInFriendsList {
     private String firstName;
     private String lastName;
     private String imageURL;
-    private String headline;
 
     public UserInFriendsList(){};
 
@@ -15,7 +14,6 @@ public class UserInFriendsList {
         this.firstName = firstName;
         this.lastName = lastName;
         this.imageURL = imageURL;
-        this.headline = headline;
     }
 
     public UserInFriendsList(User user){
@@ -23,7 +21,6 @@ public class UserInFriendsList {
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.imageURL = user.getImageUrl();
-        this.headline = user.getHeadline();
     }
 
     public String getUserId() {
@@ -42,9 +39,6 @@ public class UserInFriendsList {
         return imageURL;
     }
 
-    public String getHeadline() {
-        return headline;
-    }
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -62,7 +56,4 @@ public class UserInFriendsList {
         this.imageURL = imageURL;
     }
 
-    public void setHeadline(String headline) {
-        this.headline = headline;
-    }
 }

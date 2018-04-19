@@ -1,5 +1,6 @@
 package com.linkedin.replica.connections.database.handlers.impl;
 
+import com.arangodb.ArangoCursor;
 import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.DatabaseConnection;
@@ -11,6 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GetFriendsListHandler extends GetFriendsList  {
     private ArangoDB arangoDB;
@@ -29,9 +32,14 @@ public class GetFriendsListHandler extends GetFriendsList  {
     @Override
     public ArrayList<UserInFriendsList> getFriendsList(String userID) {
         String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
-
-        User user1 = arangoDB.db(dbName).collection(collectionName).getDocument(userID, User.class);
-        return user1.getFriendsList();
+        String query = "For u IN " + collectionName + " FILTER u.userId == @id LET result = ( FOR u2 in "+ collectionName + " FILTER u2.userId in u.friendsList return {userId: u2.userId, firstName : u2.firstName, lastName : u2.lastName, imageURL : u2.imageURL} ) return result";
+        Map<String, Object> bindVars = new HashMap();
+        bindVars.put("id", userID);
+        ArangoCursor cursor = arangoDB.db(dbName).query(query, bindVars, null, UserInFriendsList.class);
+        ArrayList<UserInFriendsList> ret = new ArrayList<>();
+        while(cursor.hasNext())
+            ret.add((UserInFriendsList) cursor.next());
+        return ret;
     }
 }
 
