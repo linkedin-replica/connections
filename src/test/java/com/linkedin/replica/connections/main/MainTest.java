@@ -198,7 +198,8 @@ public class MainTest {
         HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userId", "111");
         UserInFriendsList[] result = (UserInFriendsList[]) service.serve(commandName, parameters);
-        System.out.println(result.toString());
+        assertTrue(result[0].getUserId().equals("222") || result[0].getUserId().equals("333"));
+        assertTrue(result[1].getUserId().equals("222") || result[1].getUserId().equals("333"));
     }
 
     @AfterClass

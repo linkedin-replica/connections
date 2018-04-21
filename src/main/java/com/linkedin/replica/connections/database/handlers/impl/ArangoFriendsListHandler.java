@@ -34,11 +34,7 @@ public class ArangoFriendsListHandler extends FriendsListHandler {
         Map<String, Object> bindVars = new HashMap();
         bindVars.put("id", userID);
         ArangoCursor<UserInFriendsList[]> cursor = arangoDB.db(dbName).query(query, bindVars, null, UserInFriendsList[].class);
-
         UserInFriendsList[] ret = cursor.next();
-        for (int i = 0; i < ret.length; i++) {
-            System.out.println(ret[i].toString());
-        }
         return ret;
     }
 
