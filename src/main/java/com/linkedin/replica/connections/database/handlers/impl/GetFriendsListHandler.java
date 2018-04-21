@@ -30,16 +30,19 @@ public class GetFriendsListHandler extends GetFriendsList  {
      * @param userID
      */
     @Override
-    public ArrayList<UserInFriendsList> getFriendsList(String userID) {
+    public UserInFriendsList[] getFriendsList(String userID) {
         String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
-        String query = "For u IN " + collectionName + " FILTER u.userId == @id LET result = ( FOR u2 in "+ collectionName + " FILTER u2.userId in u.friendsList return {userId: u2.userId, firstName : u2.firstName, lastName : u2.lastName, imageURL : u2.imageURL} ) return result";
+        String query = "For u IN " + collectionName + " FILTER u.userId == @id LET result = ( FOR u2 in "+ collectionName + " FILTER u2.userId in u.friendsList return {userId: u2.userId, firstName : u2.firstName, lastName : u2.lastName, profilePictureUrl : u2.profilePictureUrl} ) return result";
         Map<String, Object> bindVars = new HashMap();
         bindVars.put("id", userID);
-        ArangoCursor cursor = arangoDB.db(dbName).query(query, bindVars, null, UserInFriendsList.class);
-        ArrayList<UserInFriendsList> ret = new ArrayList<>();
-        while(cursor.hasNext())
-            ret.add((UserInFriendsList) cursor.next());
+        ArangoCursor<UserInFriendsList[]> cursor = arangoDB.db(dbName).query(query, bindVars, null, UserInFriendsList[].class);
+
+        UserInFriendsList[] ret = cursor.next();
+        for (int i = 0; i < ret.length; i++) {
+            System.out.println(ret[i].toString());
+        }
         return ret;
     }
+
 }
 

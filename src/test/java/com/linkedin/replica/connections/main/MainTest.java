@@ -5,12 +5,14 @@ import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.DatabaseSeed;
 import com.linkedin.replica.connections.database.DatabaseConnection;
+import com.linkedin.replica.connections.models.UserInFriendsList;
 import org.junit.*;
 import com.linkedin.replica.connections.services.ConnectionsService;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +27,8 @@ public class MainTest {
     @BeforeClass
     public static void setup() throws SQLException, IOException, ClassNotFoundException {
         String[] args = {"src/main/resources/app.config", "src/main/resources/database.test.config" , "src/main/resources/commands.config", "src/main/resources/controller.config"};
-        Main.start(args);
+        Configuration.init(args[0], args[1], args[1], args[2], args[3]);
+        DatabaseConnection.getInstance();
         service = new ConnectionsService();
         DatabaseSeed dbseed = new DatabaseSeed();
         mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
@@ -33,9 +36,9 @@ public class MainTest {
         config = Configuration.getInstance();
         dbName = config.getArangoConfigProp("db.name");
         userCollectionName = config.getArangoConfigProp("collection.users.name");
-//        clean();
-//        dbseed.insertUsers();
-//        dbseed.insertFriendRequest();
+        clean();
+        dbseed.insertUsers();
+        dbseed.insertFriendRequest();
     }
 
     @Test
@@ -44,8 +47,8 @@ public class MainTest {
         String user2ID = "ff810a3f-07fc-4d35-bc84-98aed333b043"; // hatem
         String commandName = "connections.addFriend";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("userID1", user1ID);
-        parameters.put("userID2", user2ID);
+        parameters.put("userId", user1ID);
+        parameters.put("userId1", user2ID);
 
         service.serve(commandName, parameters);
         String query = "select * from user_friends_with_user where user1_id = \"" + user1ID + "\" and user2_id = \"" + user2ID + "\" and is_accepted = " + 0;
@@ -70,8 +73,8 @@ public class MainTest {
         }
         String commandName = "connections.acceptFriend";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("userID1", user1ID);
-        parameters.put("userID2", user2ID);
+        parameters.put("userId", user1ID);
+        parameters.put("userId1", user2ID);
 
         service.serve(commandName, parameters);
         String query = "select * from user_friends_with_user where user1_id = \"" + user1ID + "\" and user2_id = \"" + user2ID + "\" and is_accepted = " + 2;
@@ -114,8 +117,8 @@ public class MainTest {
         String user2ID = "55f4ebbb-606e-4e49-9604-830491c17d73"; //baher
         String commandName = "connections.blockUser";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("userID1", user1ID);
-        parameters.put("userID2", user2ID);
+        parameters.put("userId", user1ID);
+        parameters.put("userId1", user2ID);
 
         service.serve(commandName, parameters);
         String query = "select * from user_blocked_user where blocking_user_id = \"" + user1ID + "\" and blocked_user_id = \"" + user2ID + "\"";
@@ -133,8 +136,8 @@ public class MainTest {
         String user2ID = "55f4ebbb-606e-4e49-9604-830491c17d73"; //baher
         String commandName = "connections.unblockUser";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("userID1", user1ID);
-        parameters.put("userID2", user2ID);
+        parameters.put("userId", user1ID);
+        parameters.put("userId1", user2ID);
 
         service.serve(commandName, parameters);
         String query = "select * from user_blocked_user where blocking_user_id = \"" + user1ID + "\" and blocked_user_id = \"" + user2ID + "\"";
@@ -152,8 +155,8 @@ public class MainTest {
         String user2ID = "ff810a3f-07fc-4d35-bc84-98aed333b043";
         String commandName = "connections.unfriendUser";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("userID1", user1ID);
-        parameters.put("userID2", user2ID);
+        parameters.put("userId", user1ID);
+        parameters.put("userId1", user2ID);
 
         service.serve(commandName, parameters);
         String query = "select * from user_friends_with_user where user1_id = \"" + user1ID + "\" and user2_id = \"" + user2ID + "\"";
@@ -189,7 +192,16 @@ public class MainTest {
         assertTrue(size == 0);
     }
 
+    @Test
+    public void testGetFriendsList() throws IllegalAccessException, InvocationTargetException, InstantiationException, SQLException, NoSuchMethodException, ClassNotFoundException {
+        String commandName = "connections.getFriendsList";
+        HashMap<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("userId", "111");
+        UserInFriendsList[] result = (UserInFriendsList[]) service.serve(commandName, parameters);
+        System.out.println(result.toString());
+    }
 
+    @AfterClass
     public static void clean() throws SQLException {
         String query = "delete from user_friends_with_user";
         Statement statement = mySqlConnection.createStatement();

@@ -38,12 +38,6 @@ public class AddingRemovingFriendsHandler extends AddingRemovingFriends {
         stmt.executeQuery();
 
         String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
-        // get users
-//        User user1 = arangoDB.db(dbName).collection(collectionName).getDocument(userID1, User.class);
-//        User user2 = arangoDB.db(dbName).collection(collectionName).getDocument(userID2, User.class);
-
-//        UserInFriendsList userFL1 = new UserInFriendsList(user1);
-//        UserInFriendsList userFL2 = new UserInFriendsList(user2);
 
         // add user2 in user1's friendsList
         query = "FOR u IN " + collectionName + " FILTER u.userId == @id LET newFriends = PUSH(u.friendsList, @newFriend) UPDATE u WITH{ friendsList : newFriends } IN " + collectionName;
@@ -68,13 +62,6 @@ public class AddingRemovingFriendsHandler extends AddingRemovingFriends {
         stmt.executeQuery();
 
         String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
-
-        // get users
-//        User user1 = arangoDB.db(dbName).collection(collectionName).getDocument(userID1, User.class);
-//        User user2 = arangoDB.db(dbName).collection(collectionName).getDocument(userID2, User.class);
-
-//        UserInFriendsList userFL1 = new UserInFriendsList(user1);
-//        UserInFriendsList userFL2 = new UserInFriendsList(user2);
 
         // remove user2 from user1's friendsList
         query = "FOR u IN " + collectionName + "\n\t FILTER u.userId == @id LET newFriends = REMOVE_VALUE(u.friendsList, @newFriend) LET newNumConnections = (u.numConnections - 1) UPDATE u WITH{ friendsList : newFriends } IN " + collectionName;

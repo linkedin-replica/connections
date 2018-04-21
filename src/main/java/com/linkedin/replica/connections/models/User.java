@@ -8,13 +8,13 @@ public  class User {
     private String lastName;
     private String headline;
     private String imageUrl;
-    private ArrayList<UserInFriendsList> friendsList;
+    private ArrayList<String> friendsList;
 
 
     public User() {};
 
     public User(String userId, String firstName, String lastName, String headline,
-                String imageUrl, ArrayList<UserInFriendsList> userInFriendsList) {
+                String imageUrl, ArrayList<String> userInFriendsList) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -43,7 +43,7 @@ public  class User {
         return imageUrl;
     }
 
-    public ArrayList<UserInFriendsList> getFriendsList() {
+    public ArrayList<String> getFriendsList() {
         return friendsList;
     }
 
@@ -67,7 +67,7 @@ public  class User {
         this.imageUrl = imageUrl;
     }
 
-    public void setFriendsList(ArrayList<UserInFriendsList> userInFriendsList) {
+    public void setFriendsList(ArrayList<String> userInFriendsList) {
         this.friendsList = userInFriendsList;
     }
 

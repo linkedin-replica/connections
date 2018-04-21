@@ -11,5 +11,5 @@ public abstract class GetFriendsList implements DatabaseHandler{
      *
      * @param userID
      */
-    public abstract ArrayList<UserInFriendsList> getFriendsList(String userID);
+    public abstract UserInFriendsList[] getFriendsList(String userID);
 }
