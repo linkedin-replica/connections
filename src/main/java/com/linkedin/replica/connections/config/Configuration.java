@@ -16,12 +16,12 @@ public class Configuration {
 	private final Properties appConfig = new Properties();
 	private final Properties commandConfig = new Properties();
 	private final Properties databaseConfig = new Properties();
-//	private final Properties arangoConfig = new Properties();
+	private final Properties arangoConfig = new Properties();
 	private final Properties controllerConfig = new Properties();
 
 	private String appConfigPath;
 	private String databaseConfigPath;
-//	private String arangoConfigPath;
+	private String arangoConfigPath;
 	private String commandsConfigPath;
 	private String controllerConfigPath;
 
@@ -32,26 +32,26 @@ public class Configuration {
 
 	private static Configuration instance;
 
-	private Configuration(String appConfigPath, String databaseConfigPath, /*String arangoConfigPath,*/ String commandsConfigPath, String controllerConfigPath) throws IOException {
-		populateWithConfig(appConfigPath, appConfig);
-		populateWithConfig(databaseConfigPath, databaseConfig);
-//		populateWithConfig(arangoConfigPath, arangoConfig);
-		populateWithConfig(commandsConfigPath, commandConfig);
-		populateWithConfig(controllerConfigPath, controllerConfig);
-
+	private Configuration(String appConfigPath, String databaseConfigPath, String arangoConfigPath, String commandsConfigPath, String controllerConfigPath) throws IOException {
 		this.appConfigPath = appConfigPath;
 		this.databaseConfigPath = databaseConfigPath;
-//		this.arangoConfigPath = arangoConfigPath;
+		this.arangoConfigPath = arangoConfigPath;
 		this.commandsConfigPath = commandsConfigPath;
 		this.controllerConfigPath = controllerConfigPath;
+
+		populateWithConfig(appConfigPath, appConfig);
+		populateWithConfig(databaseConfigPath, databaseConfig);
+		populateWithConfig(arangoConfigPath, arangoConfig);
+		populateWithConfig(commandsConfigPath, commandConfig);
+		populateWithConfig(controllerConfigPath, controllerConfig);
 	}
 
 	public static Configuration getInstance() {
 		return instance;
 	}
 
-	public static void init(String appConfigPath, String databaseConfigPath, /*String arangoConfigPath,*/ String commandsConfigPath, String controllerConfigPath) throws IOException {
-		instance = new Configuration(appConfigPath, databaseConfigPath, /*arangoConfigPath,*/ commandsConfigPath, controllerConfigPath);
+	public static void init(String appConfigPath, String databaseConfigPath, String arangoConfigPath, String commandsConfigPath, String controllerConfigPath) throws IOException {
+		instance = new Configuration(appConfigPath, databaseConfigPath, arangoConfigPath, commandsConfigPath, controllerConfigPath);
 	}
 
 	private static void populateWithConfig(String configFilePath, Properties properties) throws IOException {
@@ -80,9 +80,9 @@ public class Configuration {
 		return databaseConfigPath;
 	}
 
-//	public String getArangoConfigProp(String key) {
-//		return arangoConfig.getProperty(key);
-//	}
+	public String getArangoConfigProp(String key) {
+		return arangoConfig.getProperty(key);
+	}
 
 	public String getControllerConfigProp(String key){
 		return controllerConfig.getProperty(key);
@@ -109,14 +109,14 @@ public class Configuration {
 		isAppConfigModified = true;
 	}
 
-//	public void setArrangoConfigProp(String key, String val){
-//		if(val != null)
-//			arangoConfig.setProperty(key, val);
-//		else
-//			arangoConfig.remove(key); // remove property if val is null
-//
-//		isArangoConfigModified = true;
-//	}
+	public void setArrangoConfigProp(String key, String val){
+		if(val != null)
+			arangoConfig.setProperty(key, val);
+		else
+			arangoConfig.remove(key); // remove property if val is null
+
+		isArangoConfigModified = true;
+	}
 
 	public void setCommandsConfigProp(String key, String val){
 		if(val != null)
@@ -137,10 +137,10 @@ public class Configuration {
 			isAppConfigModified = false;
 		}
 
-//		if(isArangoConfigModified){
-//			writeConfig(arangoConfigPath, arangoConfig);
-//			isArangoConfigModified = false;
-//		}
+		if(isArangoConfigModified){
+			writeConfig(arangoConfigPath, arangoConfig);
+			isArangoConfigModified = false;
+		}
 
 		if(isCommandsConfigModified){
 			writeConfig(commandsConfigPath, commandConfig);

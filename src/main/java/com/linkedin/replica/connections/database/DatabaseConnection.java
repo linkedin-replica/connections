@@ -1,5 +1,6 @@
 package com.linkedin.replica.connections.database;
 
+import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
 
 import java.io.FileInputStream;
@@ -24,12 +25,16 @@ public class DatabaseConnection {
 	
 	private static DatabaseConnection instance;
 	private Properties properties;
-	
+	private Configuration config;
+	private ArangoDB arangodb;
+
+
 	private DatabaseConnection() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
 		properties = new Properties();
+		config = Configuration.getInstance();
 		properties.load(new FileInputStream(Configuration.getInstance().getDatabaseConfigPath()));
 		mysqlConn = getNewMysqlDB();
-
+		initializeArangoDB();
 //		redis = new Jedis();
 	}
 	
@@ -55,7 +60,22 @@ public class DatabaseConnection {
 		}	
 		return instance;
 	}
-	
+
+	public ArangoDB getArangodb() {
+		return arangodb;
+	}
+
+	/**
+	 * Instantiate ArangoDB
+	 * @return
+	 */
+	private void initializeArangoDB() {
+		arangodb = new ArangoDB.Builder()
+				.user(config.getArangoConfigProp("arangodb.user"))
+				.password(config.getArangoConfigProp("arangodb.password"))
+				.build();
+	}
+
 	/**
 	 * Implement the clone() method and throw an exception so that the singleton cannot be cloned.
 	 */
@@ -71,7 +91,7 @@ public class DatabaseConnection {
 	 * @throws ClassNotFoundException
 	 */
 	private Connection getNewMysqlDB() throws SQLException, ClassNotFoundException{
-		// This will load the MySQL driver, each DB has its own driver
+		// This will load the BlockingHandler driver, each DB has its own driver
 		Class.forName(properties.getProperty("mysql.database-driver"));
 		// create new connection and return it
 		return DriverManager.getConnection(properties.getProperty("mysql.url"),
