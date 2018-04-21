@@ -69,7 +69,7 @@ public class DatabaseSeed {
             userID1 = userID2;
             userID2 = temp;
         }
-        String query = "{CALL Add_Friend(?, ?, ?)}";
+        String query = "{CALL Insert_Added_Friend(?, ?, ?)}";
         CallableStatement stmt = mySqlConnection.prepareCall(query);
         stmt.setString(1, userID1);
         stmt.setString(2, userID2);

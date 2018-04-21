@@ -1,5 +1,6 @@
 package com.linkedin.replica.connections.commands;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -24,7 +25,7 @@ public abstract class Command {
      * 	LinkedHashMap preserve order of insertion so it will preserve this order when parsing to JSON
      * @throws SQLException 
      */
-    public abstract Object execute() throws SQLException, NoSuchMethodException, IllegalAccessException;
+    public abstract Object execute() throws SQLException, NoSuchMethodException, IllegalAccessException, IOException;
 
 	public void setDbHandler(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
