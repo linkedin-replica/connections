@@ -29,9 +29,9 @@ public class DatabaseSeed {
             String password = st.nextToken();
             String query = "{CALL insert_user(?,?,?)}";
             CallableStatement stmt = mySqlConnection.prepareCall(query);
-            stmt.setString(1, email);
-            stmt.setString(2, password);
-            stmt.setString(3, userID);
+            stmt.setString(1, userID);
+            stmt.setString(2, email);
+            stmt.setString(3, password);
             stmt.executeQuery();
         }
     }
