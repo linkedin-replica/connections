@@ -9,12 +9,11 @@ import com.linkedin.replica.connections.messaging.SendNotificationHandler;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.concurrent.TimeoutException;
-
 
 public class Main {
-	
-	public static void start(String... args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException, InterruptedException {
+
+	public static void start(String... args) throws FileNotFoundException, ClassNotFoundException, IOException,
+												SQLException, InterruptedException {
 		if(args.length != 4)
 			throw new IllegalArgumentException("Expected three arguments. 1-database.config file path "
 					+ "2- commands.config file path  3- arango_name file path 4- controller.config file path");
@@ -24,32 +23,43 @@ public class Main {
 		
 		// create singleton instance of DatabaseConnection class that is responsible for intiating connections
 		// with databases
-		DatabaseConnection.getInstance();
+		DatabaseConnection.init();
 
-		new Thread(() -> {
+		// start tasks
+		Runnable clientMessageRunnable = () -> {
 			try {
 				new MessageReceiver();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}).start();
+		};
 
-		new Thread(() -> {
+		Runnable sendNotificationRunnable = () -> {
 			try {
 				SendNotificationHandler.init();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}).start();
+		};
 
+		startTask(clientMessageRunnable, "Client Message Receiver");
+		startTask(sendNotificationRunnable, "Send Notification Handler");
 		new Server().start();
 	}
-	
-	public static void shutdown() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
-		DatabaseConnection.getInstance().closeConnections();
+
+	private static void startTask(Runnable runnable, String name) {
+		Thread thread = new Thread(runnable);
+		System.out.println("Starting thread " + thread.getId() + " for " + name);
+		thread.start();
 	}
 	
-	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException, InterruptedException {
+	public static void shutdown() throws ClassNotFoundException, IOException, SQLException{
+		DatabaseConnection.getInstance().closeConnections();
+	}
+
+
+	public static void main(String[] args) throws ClassNotFoundException, IOException,
+												SQLException, InterruptedException {
 		Main.start(args);
 	}
 }

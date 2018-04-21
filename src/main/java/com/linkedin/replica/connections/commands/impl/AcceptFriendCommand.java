@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import com.linkedin.replica.connections.commands.Command;
-import com.linkedin.replica.connections.database.handlers.impl.AddingRemovingFriendsHandler;
 import com.linkedin.replica.connections.messaging.SendNotificationHandler;
+import com.linkedin.replica.connections.database.handlers.impl.ArangoMySQLFriendsHandler;
 
 /**
  *  Implementation of command design patterns for accept friend functionality
@@ -22,7 +22,7 @@ public class AcceptFriendCommand extends Command {
 		validateArgs(new String[]{"userId1"});
 		String userID1 = (String) args.get("userId");
 		String userID2 = (String) args.get("userId1");
-		AddingRemovingFriendsHandler dbHandler = (AddingRemovingFriendsHandler) this.dbHandler;
+		ArangoMySQLFriendsHandler dbHandler = (ArangoMySQLFriendsHandler) this.dbHandler;
 		dbHandler.acceptFriendRequest(userID1, userID2);
 
 		SendNotificationHandler.getInstance().sendNotification(userID2, "User accepted your friend request", "TODO link");

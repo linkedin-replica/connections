@@ -4,8 +4,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import com.linkedin.replica.connections.commands.Command;
-import com.linkedin.replica.connections.database.handlers.impl.GetFriendsListHandler;
-import com.linkedin.replica.connections.database.handlers.impl.MySqlHandler;
+import com.linkedin.replica.connections.database.handlers.impl.ArangoFriendsListHandler;
 
 /**
  *  Implementation of command design patterns for block user functionality
@@ -20,7 +19,7 @@ public class GetFriendsListCommand extends Command {
     public Object execute() throws SQLException {
         validateArgs(new String[]{"userId"});
         String userId = (String) args.get("userId");
-        GetFriendsListHandler dbHandler = (GetFriendsListHandler) this.dbHandler;
+        ArangoFriendsListHandler dbHandler = (ArangoFriendsListHandler) this.dbHandler;
         return dbHandler.getFriendsList(userId);
     }
 

@@ -2,10 +2,9 @@ package com.linkedin.replica.connections.database;
 
 import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
-import com.linkedin.replica.connections.database.handlers.impl.MySqlHandler;
+import com.linkedin.replica.connections.database.handlers.impl.MySQLBlockingHandler;
 import com.linkedin.replica.connections.models.User;
 
-import javax.xml.crypto.Data;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,14 +17,14 @@ import java.util.StringTokenizer;
 public class DatabaseSeed {
     Connection mySqlConnection;
     BufferedReader br;
-    MySqlHandler mySqlHandler;
+    MySQLBlockingHandler mySQLBlockingHandler;
     ArangoDB arangoDB;
     String dbName;
     String collectionName;
     public DatabaseSeed() throws SQLException, IOException, ClassNotFoundException {
         mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
         br = new BufferedReader(new FileReader("src/test/java/resources/users"));
-        mySqlHandler = new MySqlHandler();
+        mySQLBlockingHandler = new MySQLBlockingHandler();
 
         arangoDB = DatabaseConnection.getInstance().getArangodb();
         dbName = Configuration.getInstance().getArangoConfigProp("db.name");

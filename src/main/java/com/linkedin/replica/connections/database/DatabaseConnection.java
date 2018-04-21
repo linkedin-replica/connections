@@ -75,7 +75,7 @@ public class DatabaseConnection {
 	 * @throws ClassNotFoundException
 	 */
 	private Connection getNewMysqlDB() throws SQLException, ClassNotFoundException{
-		// This will load the MySQL driver, each DB has its own driver
+		// This will load the BlockingHandler driver, each DB has its own driver
 		Class.forName(properties.getProperty("mysql.database-driver"));
 		// create new connection and return it
 		return DriverManager.getConnection(properties.getProperty("mysql.url"),

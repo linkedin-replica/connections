@@ -7,14 +7,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.linkedin.replica.connections.database.DatabaseConnection;
-import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
-import com.linkedin.replica.connections.database.handlers.MySQL;
+import com.linkedin.replica.connections.database.handlers.BlockingHandler;
 
-public class MySqlHandler extends MySQL {
+public class MySQLBlockingHandler implements BlockingHandler {
 	
 	Connection mySqlConnection;
 	
-	public MySqlHandler() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
+	public MySQLBlockingHandler() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
 		mySqlConnection = DatabaseConnection.getInstance().getMysqlConn();
 	}
 
@@ -35,7 +34,6 @@ public class MySqlHandler extends MySQL {
 		stmt.setString(2, userID2);
 		stmt.executeQuery();
 	}
-	
 
 	public void addFriend(String userID1, String userID2) throws SQLException {
 		int status = -1;
@@ -55,5 +53,4 @@ public class MySqlHandler extends MySQL {
 		stmt.setInt(3, status);
 		stmt.executeQuery();
 	}
-
 }
