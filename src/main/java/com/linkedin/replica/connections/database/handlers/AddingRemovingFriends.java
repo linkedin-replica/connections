@@ -11,9 +11,7 @@ public abstract class AddingRemovingFriends implements DatabaseHandler {
      * @param userID2
      * @throws SQLException
      */
-    public void acceptFriendRequest(String userID1, String userID2) throws SQLException {
-
-    }
+    public abstract void acceptFriendRequest(String userID1, String userID2) throws SQLException;
 
     /**
      * Unfriend a user
@@ -23,7 +21,5 @@ public abstract class AddingRemovingFriends implements DatabaseHandler {
      * @param userID2
      * @throws SQLException
      */
-    public void unfriendUser(String userID1, String userID2) throws SQLException {
-
-    }
+    public abstract void unfriendUser(String userID1, String userID2) throws SQLException;
 }

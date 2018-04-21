@@ -13,9 +13,7 @@ public abstract class MySQL implements DatabaseHandler{
      * @param userID2
      * @throws SQLException
      */
-    public void blockUser(String userID1, String userID2) throws SQLException {
-
-    }
+    public abstract void blockUser(String userID1, String userID2) throws SQLException;
 
     /**
      * Unblock a user
@@ -25,9 +23,7 @@ public abstract class MySQL implements DatabaseHandler{
      * @param userID2
      * @throws SQLException
      */
-    public void unBlockUser(String userID1, String userID2) throws SQLException {
-
-    }
+    public abstract void unBlockUser(String userID1, String userID2) throws SQLException;
 
     /**
      * Add user a friend
@@ -37,7 +33,5 @@ public abstract class MySQL implements DatabaseHandler{
      * @param userID2
      * @throws SQLException
      */
-    public void addFriend(String userID1, String userID2) throws SQLException {
-
-    }
+    public abstract void addFriend(String userID1, String userID2) throws SQLException;
 }
