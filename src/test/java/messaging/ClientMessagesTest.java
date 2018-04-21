@@ -39,7 +39,8 @@ public class ClientMessagesTest {
     public static void init() throws IOException, TimeoutException, SQLException, ClassNotFoundException {
         String rootFolder = "src/main/resources/";
         Configuration.init(rootFolder + "app.config",
-                rootFolder + "database.config",
+                rootFolder + "database.test.config",
+                rootFolder + "database.test.config",
                 rootFolder + "commands.config",
                 rootFolder + "controller.config");
         DatabaseConnection dbInstance = DatabaseConnection.getInstance();
@@ -98,8 +99,8 @@ public class ClientMessagesTest {
 
         JsonObject object = new JsonObject();
         object.addProperty("commandName", "connections.addFriend");
-        object.addProperty("userID1", "e4def870-f331-4fb5-a44c-967592cf5b42");
-        object.addProperty("userID2", "ff810a3f-07fc-4d35-bc84-98aed333b043");
+        object.addProperty("userId", "e4def870-f331-4fb5-a44c-967592cf5b42");
+        object.addProperty("userId1", "ff810a3f-07fc-4d35-bc84-98aed333b043");
         byte[] message = object.toString().getBytes();
         final String corrId = UUID.randomUUID().toString();
 
@@ -126,7 +127,6 @@ public class ClientMessagesTest {
 
         String resMessage = response.take();
         JsonObject resObject = new JsonParser().parse(resMessage).getAsJsonObject();
-
         assertEquals("Response status code should be 201 for adding a friend", 201, resObject.get("statusCode").getAsInt());
     }
 
@@ -142,6 +142,10 @@ public class ClientMessagesTest {
         statement.executeUpdate(query);
 
         query = "delete from users";
+        statement = mySqlConnection.createStatement();
+        statement.executeUpdate(query);
+
+        query = "delete from user_blocked_user";
         statement = mySqlConnection.createStatement();
         statement.executeUpdate(query);
 

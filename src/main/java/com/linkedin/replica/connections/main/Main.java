@@ -17,7 +17,7 @@ public class Main {
 					+ "2- commands.config file path  3- arango_name file path 4- controller.config file path");
 		
 		// create singleton instance of Configuration class that will hold configuration files paths
-		Configuration.init(args[0], args[1], args[2], args[3]);
+		Configuration.init(args[0], args[1], args[1], args[2], args[3]);
 		
 		// create singleton instance of DatabaseConnection class that is responsible for intiating connections
 		// with databases

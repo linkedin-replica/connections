@@ -22,7 +22,6 @@
     <name>Linkedin Connections Service</name>
 
     <dependencies>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -61,7 +60,12 @@
         </dependency>
 
         <dependency>
-            <groupId>com.rabbitmq</groupId>
+            <groupId>com.arangodb</groupId>
+            <artifactId>arangodb-java-driver</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+        <dependency>
+        <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
             <version>5.1.2</version>
         </dependency>
