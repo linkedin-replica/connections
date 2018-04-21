@@ -13,7 +13,8 @@ import java.sql.SQLException;
 
 public class Main {
 	
-	public static void start(String... args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException, InterruptedException {
+	public static void start(String... args) throws FileNotFoundException, ClassNotFoundException, IOException,
+												SQLException, InterruptedException {
 		if(args.length != 4)
 			throw new IllegalArgumentException("Expected three arguments. 1-database.config file path "
 					+ "2- commands.config file path  3- arango_name file path 4- controller.config file path");
@@ -51,7 +52,8 @@ public class Main {
 		DatabaseConnection.getInstance().closeConnections();
 	}
 	
-	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException, InterruptedException {
+	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException,
+												SQLException, InterruptedException {
 		Main.start(args);
 	}
 }

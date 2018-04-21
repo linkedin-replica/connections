@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArangoFriendsListHandler extends FriendsListHandler {
+public class ArangoFriendsListHandler implements FriendsListHandler {
     private ArangoDB arangoDB;
     private String dbName;
 
@@ -30,10 +30,19 @@ public class ArangoFriendsListHandler extends FriendsListHandler {
     @Override
     public UserInFriendsList[] getFriendsList(String userID) {
         String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
-        String query = "For u IN " + collectionName + " FILTER u.userId == @id LET result = ( FOR u2 in "+ collectionName + " FILTER u2.userId in u.friendsList return {userId: u2.userId, firstName : u2.firstName, lastName : u2.lastName, profilePictureUrl : u2.profilePictureUrl} ) return result";
+        String query = "For u IN " + collectionName + " FILTER u.userId == @id " +
+                        "LET result = " +
+                        "( FOR u2 in "+ collectionName + " FILTER u2.userId in u.friendsList " +
+                        "return {" +
+                            "userId: u2.userId, " +
+                            "firstName : u2.firstName, " +
+                            "lastName : u2.lastName, " +
+                            "profilePictureUrl : u2.profilePictureUrl" +
+                        "} ) return result";
         Map<String, Object> bindVars = new HashMap();
         bindVars.put("id", userID);
-        ArangoCursor<UserInFriendsList[]> cursor = arangoDB.db(dbName).query(query, bindVars, null, UserInFriendsList[].class);
+        ArangoCursor<UserInFriendsList[]> cursor = arangoDB.db(dbName)
+                                                    .query(query, bindVars, null, UserInFriendsList[].class);
         UserInFriendsList[] ret = cursor.next();
         return ret;
     }

@@ -2,7 +2,7 @@ package com.linkedin.replica.connections.database.handlers;
 
 import java.sql.SQLException;
 
-public abstract class FriendsHandler implements DatabaseHandler {
+public interface FriendsHandler extends DatabaseHandler {
     /**
      * Accept a friend request
      * User with userID1 accepts request from user with userID2
@@ -11,7 +11,7 @@ public abstract class FriendsHandler implements DatabaseHandler {
      * @param userID2
      * @throws SQLException
      */
-    public abstract void acceptFriendRequest(String userID1, String userID2) throws SQLException;
+    void acceptFriendRequest(String userID1, String userID2) throws SQLException;
 
     /**
      * Unfriend a user
@@ -21,7 +21,7 @@ public abstract class FriendsHandler implements DatabaseHandler {
      * @param userID2
      * @throws SQLException
      */
-    public abstract void unfriendUser(String userID1, String userID2) throws SQLException;
+    void unfriendUser(String userID1, String userID2) throws SQLException;
 
     /**
      * Add user a friend
@@ -31,5 +31,5 @@ public abstract class FriendsHandler implements DatabaseHandler {
      * @param userID2
      * @throws SQLException
      */
-    public abstract void addFriend(String userID1, String userID2) throws SQLException;
+    void addFriend(String userID1, String userID2) throws SQLException;
 }

@@ -4,7 +4,7 @@ import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
 
 import java.sql.SQLException;
 
-public abstract class BlockingHandler implements DatabaseHandler{
+public interface BlockingHandler extends DatabaseHandler{
     /**
      * Block a user
      * User with userID1 blocks user with userID2
@@ -13,7 +13,7 @@ public abstract class BlockingHandler implements DatabaseHandler{
      * @param userID2
      * @throws SQLException
      */
-    public abstract void blockUser(String userID1, String userID2) throws SQLException;
+    void blockUser(String userID1, String userID2) throws SQLException;
 
     /**
      * Unblock a user
@@ -23,7 +23,7 @@ public abstract class BlockingHandler implements DatabaseHandler{
      * @param userID2
      * @throws SQLException
      */
-    public abstract void unBlockUser(String userID1, String userID2) throws SQLException;
+    void unBlockUser(String userID1, String userID2) throws SQLException;
 
 
 }

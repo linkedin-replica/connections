@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.database.handlers.BlockingHandler;
 
-public class MySQLBlockingHandler extends BlockingHandler {
+public class MySQLBlockingHandler implements BlockingHandler {
 	
 	Connection mySqlConnection;
 	
