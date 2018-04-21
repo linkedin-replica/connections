@@ -32,4 +32,7 @@ public interface FriendsHandler extends DatabaseHandler {
      * @throws SQLException
      */
     void addFriend(String userID1, String userID2) throws SQLException;
+
+
+    String getUserName(String userId);
 }

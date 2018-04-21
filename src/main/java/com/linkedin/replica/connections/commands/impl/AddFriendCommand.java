@@ -5,8 +5,10 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import com.linkedin.replica.connections.commands.Command;
+import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.messaging.SendNotificationHandler;
 import com.linkedin.replica.connections.database.handlers.impl.ArangoMySQLFriendsHandler;
+import com.linkedin.replica.connections.services.Workers;
 
 /**
  *  Implementation of command design patterns for add friend functionality
@@ -26,7 +28,17 @@ public class AddFriendCommand extends Command {
 		ArangoMySQLFriendsHandler dbHandler = (ArangoMySQLFriendsHandler) this.dbHandler;
 		dbHandler.addFriend(userID1, userID2);
 
-		SendNotificationHandler.getInstance().sendNotification(userID2, "User wants to connect with you", "TODO link");
+		Runnable sendNotificationRunnable = () -> {
+			try {
+				String myName = dbHandler.getUserName(userID1);
+				String text = myName + " added you as a friend";
+				String link = Configuration.getInstance().getAppConfigProp("route.friendRequests");
+				SendNotificationHandler.getInstance().sendNotification(userID2, text, link);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		};
+		Workers.getInstance().submit(sendNotificationRunnable);
 
 		return null;
 	}

@@ -26,6 +26,7 @@ public class MainTest {
     private static ArangoDB arangoDB;
     private static Configuration config;
     private static String dbName, userCollectionName;
+
     @BeforeClass
     public static void setup() throws SQLException, IOException, ClassNotFoundException, TimeoutException {
         String[] args = {"src/main/resources/app.config",

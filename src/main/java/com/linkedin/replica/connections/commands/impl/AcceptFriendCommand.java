@@ -7,6 +7,8 @@ import java.util.HashMap;
 import com.linkedin.replica.connections.commands.Command;
 import com.linkedin.replica.connections.messaging.SendNotificationHandler;
 import com.linkedin.replica.connections.database.handlers.impl.ArangoMySQLFriendsHandler;
+import com.linkedin.replica.connections.config.Configuration;
+import com.linkedin.replica.connections.services.Workers;
 
 /**
  *  Implementation of command design patterns for accept friend functionality
@@ -25,7 +27,17 @@ public class AcceptFriendCommand extends Command {
 		ArangoMySQLFriendsHandler dbHandler = (ArangoMySQLFriendsHandler) this.dbHandler;
 		dbHandler.acceptFriendRequest(userID1, userID2);
 
-		SendNotificationHandler.getInstance().sendNotification(userID2, "User accepted your friend request", "TODO link");
+		Runnable sendNotificationRunnable = () -> {
+			try {
+				String myName = dbHandler.getUserName(userID1);
+				String text = myName + " accepted your friend request";
+				String link = Configuration.getInstance().getAppConfigProp("route.profile") + userID1;
+				SendNotificationHandler.getInstance().sendNotification(userID2, text, link);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		};
+		Workers.getInstance().submit(sendNotificationRunnable);
 
 		return null;
 	}
