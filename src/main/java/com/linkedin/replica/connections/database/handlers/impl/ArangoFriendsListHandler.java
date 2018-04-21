@@ -4,22 +4,20 @@ import com.arangodb.ArangoCursor;
 import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.DatabaseConnection;
-import com.linkedin.replica.connections.database.handlers.GetFriendsList;
-import com.linkedin.replica.connections.models.User;
+import com.linkedin.replica.connections.database.handlers.FriendsListHandler;
 import com.linkedin.replica.connections.models.UserInFriendsList;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetFriendsListHandler extends GetFriendsList  {
+public class ArangoFriendsListHandler extends FriendsListHandler {
     private ArangoDB arangoDB;
     private String dbName;
 
-    public GetFriendsListHandler() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException {
+    public ArangoFriendsListHandler() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException {
         arangoDB = DatabaseConnection.getInstance().getArangodb();
         dbName = Configuration.getInstance().getArangoConfigProp("db.name");
     }

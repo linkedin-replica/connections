@@ -1,29 +1,27 @@
 package com.linkedin.replica.connections.database.handlers;
 
-import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
-
 import java.sql.SQLException;
 
-public abstract class MySQL implements DatabaseHandler{
+public abstract class FriendsHandler implements DatabaseHandler {
     /**
-     * Block a user
-     * User with userID1 blocks user with userID2
+     * Accept a friend request
+     * User with userID1 accepts request from user with userID2
      *
      * @param userID1
      * @param userID2
      * @throws SQLException
      */
-    public abstract void blockUser(String userID1, String userID2) throws SQLException;
+    public abstract void acceptFriendRequest(String userID1, String userID2) throws SQLException;
 
     /**
-     * Unblock a user
-     * User with userID1 unblocks user with userID2
+     * Unfriend a user
+     * User with userID1 unfriends user with userID2
      *
      * @param userID1
      * @param userID2
      * @throws SQLException
      */
-    public abstract void unBlockUser(String userID1, String userID2) throws SQLException;
+    public abstract void unfriendUser(String userID1, String userID2) throws SQLException;
 
     /**
      * Add user a friend

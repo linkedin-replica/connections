@@ -4,7 +4,7 @@ import com.linkedin.replica.connections.models.UserInFriendsList;
 
 import java.util.ArrayList;
 
-public abstract class GetFriendsList implements DatabaseHandler{
+public abstract class FriendsListHandler implements DatabaseHandler{
 
     /**
      * Returns user's friends list
