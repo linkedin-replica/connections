@@ -209,16 +209,16 @@ public class MainTest {
 
     @Test
     public void testGetFriendRequests() throws IllegalAccessException, InvocationTargetException, InstantiationException, SQLException, NoSuchMethodException, ClassNotFoundException {
-        String user1ID = "111"; //anwar
-        String user2ID = "444"; // hatem
+        String user1ID = "111";
+        String user2ID = "444";
         String commandName = "connections.addFriend";
         HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userId", user1ID);
         parameters.put("userId1", user2ID);
         service.serve(commandName, parameters);
 
-        user1ID = "555"; //anwar
-        user2ID = "444"; // hatem
+        user1ID = "555";
+        user2ID = "444";
         HashMap<String, Object> parameters1 = new HashMap<String, Object>();
         parameters1.put("userId", user1ID);
         parameters1.put("userId1", user2ID);

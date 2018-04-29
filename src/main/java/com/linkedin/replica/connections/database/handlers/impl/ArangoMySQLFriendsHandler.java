@@ -109,7 +109,6 @@ public class ArangoMySQLFriendsHandler extends FriendsHandler {
         }
         String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
         String query = "For u IN " + collectionName + " FILTER u.userId in @ids return {userId: u.userId, firstName : u.firstName, lastName : u.lastName, profilePictureUrl : u.profilePictureUrl}";
-        System.out.println(query);
         Map<String, Object> bindVars = new HashMap();
         bindVars.put("ids", ids1);
         ArangoCursor<UserInFriendsList> cursor = arangoDB.db(dbName).query(query, bindVars, null, UserInFriendsList.class);
@@ -117,11 +116,7 @@ public class ArangoMySQLFriendsHandler extends FriendsHandler {
         while(cursor.hasNext())
             users.add(cursor.next());
 
-        UserInFriendsList[] ret = new UserInFriendsList[users.size()];
-        for (int i = 0; i < ret.length; i++)
-            ret[i] = users.get(i);
-
-        return ret;
+        return users.toArray(new UserInFriendsList[0]);
     }
 
     public void addFriend(String userID1, String userID2) throws SQLException {
