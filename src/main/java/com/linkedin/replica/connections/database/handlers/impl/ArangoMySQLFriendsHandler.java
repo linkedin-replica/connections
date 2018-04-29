@@ -1,15 +1,16 @@
 package com.linkedin.replica.connections.database.handlers.impl;
 
+import com.arangodb.ArangoCursor;
 import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.database.handlers.FriendsHandler;
 import com.linkedin.replica.connections.models.User;
+import com.linkedin.replica.connections.models.UserInFriendsList;
 
 import java.io.IOException;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,6 +76,52 @@ public class ArangoMySQLFriendsHandler extends FriendsHandler {
         bindVars.put("id", userID2);
         bindVars.put("newFriend", userID1);
         arangoDB.db(dbName).query(query, bindVars, null, User.class);
+    }
+
+    /**
+     * Add user a friend
+     * User with userID1 adds user with userID2 as friend
+     *
+     * @param userId
+     */
+    @Override
+    public UserInFriendsList[] getFriendRequests(String userId) throws SQLException {
+
+        PreparedStatement ps = mySqlConnection.prepareStatement("SELECT * FROM user_friends_with_user\n" +
+                "WHERE (user1_id = ? AND is_accepted = 1) OR (user2_id = ? AND is_accepted = 0)");
+
+        ps.setString(1, userId);
+        ps.setString(2, userId);
+        ResultSet res = ps.executeQuery();
+
+        ArrayList<String> ids = new ArrayList<>();
+        int size = 0;
+        while(res.next()){
+            size++;
+            if(res.getString(1).equals(userId))
+                ids.add(res.getString(2));
+            else
+                ids.add(res.getString(1));
+        }
+        String[] ids1 = new String[ids.size()];
+        for (int i = 0; i < ids1.length; i++) {
+            ids1[i] = ids.get(i);
+        }
+        String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
+        String query = "For u IN " + collectionName + " FILTER u.userId in @ids return {userId: u.userId, firstName : u.firstName, lastName : u.lastName, profilePictureUrl : u.profilePictureUrl}";
+        System.out.println(query);
+        Map<String, Object> bindVars = new HashMap();
+        bindVars.put("ids", ids1);
+        ArangoCursor<UserInFriendsList> cursor = arangoDB.db(dbName).query(query, bindVars, null, UserInFriendsList.class);
+        ArrayList<UserInFriendsList> users = new ArrayList<>();
+        while(cursor.hasNext())
+            users.add(cursor.next());
+
+        UserInFriendsList[] ret = new UserInFriendsList[users.size()];
+        for (int i = 0; i < ret.length; i++)
+            ret[i] = users.get(i);
+
+        return ret;
     }
 
     public void addFriend(String userID1, String userID2) throws SQLException {
