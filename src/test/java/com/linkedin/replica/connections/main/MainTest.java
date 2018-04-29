@@ -3,16 +3,20 @@ package com.linkedin.replica.connections.main;
 import com.arangodb.ArangoCursor;
 import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
-import com.linkedin.replica.connections.database.DatabaseSeed;
 import com.linkedin.replica.connections.database.DatabaseConnection;
+import com.linkedin.replica.connections.database.DatabaseSeed;
 import com.linkedin.replica.connections.models.UserInFriendsList;
-import org.junit.*;
 import com.linkedin.replica.connections.services.ConnectionsService;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -212,8 +216,35 @@ public class MainTest {
         HashMap<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("userId", "111");
         UserInFriendsList[] result = (UserInFriendsList[]) service.serve(commandName, parameters);
+
         assertTrue(result[0].getUserId().equals("222") || result[0].getUserId().equals("333"));
         assertTrue(result[1].getUserId().equals("222") || result[1].getUserId().equals("333"));
+    }
+
+    @Test
+    public void testGetFriendRequests() throws IllegalAccessException, InvocationTargetException, InstantiationException, SQLException, NoSuchMethodException, ClassNotFoundException {
+        String user1ID = "111";
+        String user2ID = "444";
+        String commandName = "connections.addFriend";
+        HashMap<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("userId", user1ID);
+        parameters.put("userId1", user2ID);
+        service.serve(commandName, parameters);
+
+        user1ID = "555";
+        user2ID = "444";
+        HashMap<String, Object> parameters1 = new HashMap<String, Object>();
+        parameters1.put("userId", user1ID);
+        parameters1.put("userId1", user2ID);
+        service.serve(commandName, parameters1);
+
+
+        commandName = "connections.getFriendRequest";
+        HashMap<String, Object> parameters2 = new HashMap<String, Object>();
+        parameters2.put("userId", "444");
+        UserInFriendsList[] result = (UserInFriendsList[]) service.serve(commandName, parameters2);
+        assertTrue(result[0].getUserId().equals("555") || result[0].getUserId().equals("111"));
+        assertTrue(result[1].getUserId().equals("555") || result[1].getUserId().equals("111"));
     }
 
     @AfterClass
