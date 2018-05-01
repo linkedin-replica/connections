@@ -41,7 +41,6 @@ public class DatabaseSeed {
         while(br.ready()){
             String s = br.readLine();
             StringTokenizer st = new StringTokenizer(s);
-            System.out.println(s);
             String userID = st.nextToken();
             String email = st.nextToken();
             String password = st.nextToken();
@@ -51,7 +50,6 @@ public class DatabaseSeed {
             stmt.setString(2, email);
             stmt.setString(3, password);
             stmt.executeQuery();
-            System.out.println( userID + " " + email + " " + password);
 
             User user = new User();
             if(userID.equals("111") || userID.equals("222") || userID.equals("333")){

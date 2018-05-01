@@ -5,7 +5,9 @@ import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.database.DatabaseSeed;
+import com.linkedin.replica.connections.database.handlers.BlockingHandler;
 import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
+import com.linkedin.replica.connections.database.handlers.FriendsHandler;
 import com.linkedin.replica.connections.database.handlers.impl.ArangoFriendsListHandler;
 import com.linkedin.replica.connections.database.handlers.impl.ArangoMySQLFriendsHandler;
 import com.linkedin.replica.connections.database.handlers.impl.MySQLBlockingHandler;
@@ -256,21 +258,20 @@ public class MainTest {
         String user1ID = "666";
         String user2ID = "777";
         DatabaseHandler dbHandler = new ArangoMySQLFriendsHandler();
-        ((ArangoMySQLFriendsHandler)dbHandler).addFriend(user1ID, user2ID);
+        ((FriendsHandler)dbHandler).addFriend(user1ID, user2ID);
 
         dbHandler =  new MySQLBlockingHandler();
-        ((MySQLBlockingHandler)dbHandler).ignoreRequest(user2ID, user1ID);
+        ((BlockingHandler)dbHandler).ignoreRequest(user2ID, user1ID);
 
         String query = "SELECT * FROM user_friends_with_user WHERE user1_id = ? AND user2_id = ?;";
         PreparedStatement ps = mySqlConnection.prepareStatement(query);
         ps.setString(1, user1ID);
         ps.setString(2, user2ID);
-        System.out.println(ps.toString());
         ResultSet res = ps.executeQuery();
 
         int size = 0;
         while(res.next())
-            System.out.println(res.getString(1) + " " + res.getString(2) + " " + res.getInt(3));
+            size++;
 
         assertTrue(size == 0);
     }

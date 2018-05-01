@@ -34,9 +34,12 @@ public class MySQLBlockingHandler implements BlockingHandler {
 	}
 
 	public void ignoreRequest(String userID1, String userID2) throws SQLException {
-		int isAccepted = 0;
-		if(userID1.compareTo(userID2) < 0){
-			isAccepted = 1;
+		int isAccepted = 1;
+		if(userID1.compareTo(userID2) > 0){
+			isAccepted = 0;
+			String temp = userID1;
+			userID1 = userID2;
+			userID2 = temp;
 		}
 		String query = "{CALL delete_friend_request(?,?,?)}";
 		PreparedStatement ps = mySqlConnection.prepareStatement(query);
