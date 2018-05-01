@@ -39,7 +39,8 @@ public class DatabaseSeed {
 //        ids.add("444");
 //        ids.add("555");
         while(br.ready()){
-            StringTokenizer st = new StringTokenizer(br.readLine());
+            String s = br.readLine();
+            StringTokenizer st = new StringTokenizer(s);
             String userID = st.nextToken();
             String email = st.nextToken();
             String password = st.nextToken();

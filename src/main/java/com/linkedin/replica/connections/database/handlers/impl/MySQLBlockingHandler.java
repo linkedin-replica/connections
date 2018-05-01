@@ -2,9 +2,7 @@ package com.linkedin.replica.connections.database.handlers.impl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 
 import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.database.handlers.BlockingHandler;
@@ -34,4 +32,21 @@ public class MySQLBlockingHandler implements BlockingHandler {
 		stmt.setString(2, userID2);
 		stmt.executeQuery();
 	}
+
+	public void ignoreRequest(String userID1, String userID2) throws SQLException {
+		int isAccepted = 1;
+		if(userID1.compareTo(userID2) > 0){
+			isAccepted = 0;
+			String temp = userID1;
+			userID1 = userID2;
+			userID2 = temp;
+		}
+		String query = "{CALL delete_friend_request(?,?,?)}";
+		PreparedStatement ps = mySqlConnection.prepareStatement(query);
+		ps.setString(1, userID1);
+		ps.setString(2, userID2);
+		ps.setInt(3, isAccepted);
+		ResultSet res = ps.executeQuery();
+	}
+
 }
