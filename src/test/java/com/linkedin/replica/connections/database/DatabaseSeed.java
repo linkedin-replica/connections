@@ -45,9 +45,9 @@ public class DatabaseSeed {
             String password = st.nextToken();
             String query = "{CALL insert_user(?,?,?)}";
             CallableStatement stmt = mySqlConnection.prepareCall(query);
-            stmt.setString(1, email);
-            stmt.setString(2, password);
-            stmt.setString(3, userID);
+            stmt.setString(1, userID);
+            stmt.setString(2, email);
+            stmt.setString(3, password);
             stmt.executeQuery();
 
             User user = new User();
@@ -70,7 +70,7 @@ public class DatabaseSeed {
             userID1 = userID2;
             userID2 = temp;
         }
-        String query = "{CALL Add_Friend(?, ?, ?)}";
+        String query = "{CALL Insert_Added_Friend(?, ?, ?)}";
         CallableStatement stmt = mySqlConnection.prepareCall(query);
         stmt.setString(1, userID1);
         stmt.setString(2, userID2);

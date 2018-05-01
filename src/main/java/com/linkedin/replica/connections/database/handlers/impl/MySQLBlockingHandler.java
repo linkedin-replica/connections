@@ -34,6 +34,4 @@ public class MySQLBlockingHandler implements BlockingHandler {
 		stmt.setString(2, userID2);
 		stmt.executeQuery();
 	}
-
-
 }

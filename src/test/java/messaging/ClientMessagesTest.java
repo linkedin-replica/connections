@@ -6,6 +6,7 @@ import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.database.DatabaseSeed;
 import com.linkedin.replica.connections.messaging.MessageReceiver;
+import com.linkedin.replica.connections.messaging.SendNotificationHandler;
 import com.rabbitmq.client.*;
 import java.sql.*;
 
@@ -43,10 +44,11 @@ public class ClientMessagesTest {
                 rootFolder + "database.test.config",
                 rootFolder + "commands.config",
                 rootFolder + "controller.config");
+        DatabaseConnection.init();
         DatabaseConnection dbInstance = DatabaseConnection.getInstance();
         mySqlConnection = dbInstance.getMysqlConn();
         config = Configuration.getInstance();
-
+        SendNotificationHandler.init();
         // init message receiver
         QUEUE_NAME = config.getAppConfigProp("rabbitmq.queue.name");
         messagesReceiver = new MessageReceiver();
