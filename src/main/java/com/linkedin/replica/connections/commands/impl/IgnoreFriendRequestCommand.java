@@ -1,6 +1,7 @@
 package com.linkedin.replica.connections.commands.impl;
 
 import com.linkedin.replica.connections.commands.Command;
+import com.linkedin.replica.connections.database.handlers.BlockingHandler;
 import com.linkedin.replica.connections.database.handlers.impl.MySQLBlockingHandler;
 
 import java.sql.SQLException;
@@ -25,7 +26,7 @@ public class IgnoreFriendRequestCommand extends Command {
         validateArgs(new String[]{"userId1"});
         String userID1 = (String) args.get("userId");
         String userID2 = (String) args.get("userId1");
-        ((MySQLBlockingHandler)dbHandler).ignoreRequest(userID1, userID2);
+        ((BlockingHandler)dbHandler).ignoreRequest(userID1, userID2);
         return null;
     }
 }
