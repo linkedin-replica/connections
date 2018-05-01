@@ -138,7 +138,7 @@ public class ArangoMySQLFriendsHandler implements FriendsHandler {
             status = 1; // user 2 adds user 1;
         }
 
-        String query = "{CALL Add_Friend(?,?,?)}";
+        String query = "{CALL Insert_Added_Friend(?,?,?)}";
         CallableStatement stmt = mySqlConnection.prepareCall(query);
         stmt.setString(1, userID1);
         stmt.setString(2, userID2);

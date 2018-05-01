@@ -5,6 +5,10 @@ import com.arangodb.ArangoDB;
 import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.database.DatabaseSeed;
+import com.linkedin.replica.connections.database.handlers.DatabaseHandler;
+import com.linkedin.replica.connections.database.handlers.impl.ArangoFriendsListHandler;
+import com.linkedin.replica.connections.database.handlers.impl.ArangoMySQLFriendsHandler;
+import com.linkedin.replica.connections.database.handlers.impl.MySQLBlockingHandler;
 import com.linkedin.replica.connections.models.UserInFriendsList;
 import com.linkedin.replica.connections.services.ConnectionsService;
 import org.junit.AfterClass;
@@ -13,10 +17,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -239,12 +240,36 @@ public class MainTest {
         service.serve(commandName, parameters1);
 
 
-        commandName = "connections.getFriendRequest";
+        commandName = "connections.getFriendRequests";
         HashMap<String, Object> parameters2 = new HashMap<String, Object>();
         parameters2.put("userId", "444");
         UserInFriendsList[] result = (UserInFriendsList[]) service.serve(commandName, parameters2);
         assertTrue(result[0].getUserId().equals("555") || result[0].getUserId().equals("111"));
         assertTrue(result[1].getUserId().equals("555") || result[1].getUserId().equals("111"));
+    }
+
+    @Test
+    public void testIgnoreFriendRequest() throws SQLException, IOException, ClassNotFoundException {
+        String user1ID = "666";
+        String user2ID = "777";
+        DatabaseHandler dbHandler = new ArangoMySQLFriendsHandler();
+        ((ArangoMySQLFriendsHandler)dbHandler).addFriend(user1ID, user2ID);
+
+        dbHandler =  new MySQLBlockingHandler();
+        ((MySQLBlockingHandler)dbHandler).ignoreRequest(user2ID, user1ID);
+
+        String query = "SELECT * FROM user_friends_with_user WHERE user1_id = ? AND user2_id = ?;";
+        PreparedStatement ps = mySqlConnection.prepareStatement(query);
+        ps.setString(1, user1ID);
+        ps.setString(2, user2ID);
+        System.out.println(ps.toString());
+        ResultSet res = ps.executeQuery();
+
+        int size = 0;
+        while(res.next())
+            System.out.println(res.getString(1) + " " + res.getString(2) + " " + res.getInt(3));
+
+        assertTrue(size == 0);
     }
 
     @AfterClass

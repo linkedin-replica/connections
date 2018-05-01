@@ -25,5 +25,15 @@ public interface BlockingHandler extends DatabaseHandler{
      */
     void unBlockUser(String userID1, String userID2) throws SQLException;
 
+    /**
+     * ignore a friend request from a user
+     * User with userID1 ignores request from user with userID2
+     *
+     * @param userID1
+     * @param userID2
+     * @throws SQLException
+     */
+    void ignoreRequest(String userID1, String userID2) throws SQLException;
+
 
 }

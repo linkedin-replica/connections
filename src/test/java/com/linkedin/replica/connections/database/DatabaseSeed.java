@@ -39,16 +39,19 @@ public class DatabaseSeed {
 //        ids.add("444");
 //        ids.add("555");
         while(br.ready()){
-            StringTokenizer st = new StringTokenizer(br.readLine());
+            String s = br.readLine();
+            StringTokenizer st = new StringTokenizer(s);
+            System.out.println(s);
             String userID = st.nextToken();
             String email = st.nextToken();
             String password = st.nextToken();
             String query = "{CALL insert_user(?,?,?)}";
             CallableStatement stmt = mySqlConnection.prepareCall(query);
-            stmt.setString(1, email);
-            stmt.setString(2, password);
-            stmt.setString(3, userID);
+            stmt.setString(1, userID);
+            stmt.setString(2, email);
+            stmt.setString(3, password);
             stmt.executeQuery();
+            System.out.println( userID + " " + email + " " + password);
 
             User user = new User();
             if(userID.equals("111") || userID.equals("222") || userID.equals("333")){
@@ -70,7 +73,7 @@ public class DatabaseSeed {
             userID1 = userID2;
             userID2 = temp;
         }
-        String query = "{CALL Add_Friend(?, ?, ?)}";
+        String query = "{CALL Insert_Added_Friend(?, ?, ?)}";
         CallableStatement stmt = mySqlConnection.prepareCall(query);
         stmt.setString(1, userID1);
         stmt.setString(2, userID2);
