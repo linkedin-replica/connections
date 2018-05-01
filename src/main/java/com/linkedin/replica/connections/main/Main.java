@@ -4,15 +4,14 @@ import com.linkedin.replica.connections.config.Configuration;
 import com.linkedin.replica.connections.controller.Server;
 import com.linkedin.replica.connections.database.DatabaseConnection;
 import com.linkedin.replica.connections.messaging.MessageReceiver;
+import com.linkedin.replica.connections.messaging.SendNotificationHandler;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
-
-
 public class Main {
-	
+
 	public static void start(String... args) throws FileNotFoundException, ClassNotFoundException, IOException,
 												SQLException, InterruptedException {
 		if(args.length != 4)
@@ -24,7 +23,7 @@ public class Main {
 		
 		// create singleton instance of DatabaseConnection class that is responsible for intiating connections
 		// with databases
-		DatabaseConnection.getInstance();
+		DatabaseConnection.init();
 
 		// start tasks
 		Runnable clientMessageRunnable = () -> {
@@ -32,27 +31,34 @@ public class Main {
 				new MessageReceiver();
 			} catch (Exception e) {
 				e.printStackTrace();
-				// TODO log
+			}
+		};
+
+		Runnable sendNotificationRunnable = () -> {
+			try {
+				SendNotificationHandler.init();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		};
 
 		startTask(clientMessageRunnable, "Client Message Receiver");
-
-		new Server("localhost", 8000).start();
+		startTask(sendNotificationRunnable, "Send Notification Handler");
+		new Server().start();
 	}
 
 	private static void startTask(Runnable runnable, String name) {
 		Thread thread = new Thread(runnable);
 		System.out.println("Starting thread " + thread.getId() + " for " + name);
 		thread.start();
-
 	}
 	
-	public static void shutdown() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException{
+	public static void shutdown() throws ClassNotFoundException, IOException, SQLException{
 		DatabaseConnection.getInstance().closeConnections();
 	}
-	
-	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException,
+
+
+	public static void main(String[] args) throws ClassNotFoundException, IOException,
 												SQLException, InterruptedException {
 		Main.start(args);
 	}

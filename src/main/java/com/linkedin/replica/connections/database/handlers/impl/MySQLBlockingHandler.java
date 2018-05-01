@@ -33,8 +33,6 @@ public class MySQLBlockingHandler implements BlockingHandler {
 		stmt.executeQuery();
 	}
 
-
-
 	public void ignoreRequest(String userID1, String userID2) throws SQLException {
 		int isAccepted = 0;
 		if(userID1.compareTo(userID2) < 0){
@@ -47,6 +45,5 @@ public class MySQLBlockingHandler implements BlockingHandler {
 		ps.setInt(3, isAccepted);
 		ResultSet res = ps.executeQuery();
 	}
-
 
 }

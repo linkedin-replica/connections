@@ -129,9 +129,9 @@ public class ArangoMySQLFriendsHandler implements FriendsHandler {
 
     public void addFriend(String userID1, String userID2) throws SQLException {
         int status = -1;
-        if(userID1.compareTo(userID2) < 1)
+        if (userID1.compareTo(userID2) < 1)
             status = 0; // user 1 adds user 2;
-        else{
+        else {
             String temp = userID1;
             userID1 = userID2;
             userID2 = temp;
@@ -144,5 +144,14 @@ public class ArangoMySQLFriendsHandler implements FriendsHandler {
         stmt.setString(2, userID2);
         stmt.setInt(3, status);
         stmt.executeQuery();
+    }
+
+
+    public String getUserName(String userId) {
+        String collectionName = Configuration.getInstance().getArangoConfigProp("collection.users.name");
+        String query = "let u = (DOCUMENT(@id)) return concat(u.firstName, ' ', u.lastName)";
+        Map<String, Object> bindVars = new HashMap<>();
+        bindVars.put("id", collectionName + "/" + userId);
+        return arangoDB.db(dbName).query(query, bindVars, null, String.class).next();
     }
 }

@@ -76,7 +76,6 @@ public class ControllerCommand extends Command {
     public static void addCommand(Object val) throws IOException{
         // convert value to JSONObject
         JsonObject obj = convert(val);
-        System.out.println(obj);
         // validate embedded JSON object obj to check that all obligatory key value pairs are available
         validate(obj, new String[]{"fileName", "configPropKey","handler", "bytes"});
 
