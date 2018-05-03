@@ -29,35 +29,19 @@ public class DatabaseConnection {
 	private ArangoDB arangodb;
 
 
-	private DatabaseConnection() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
+	private DatabaseConnection() throws IOException, SQLException, ClassNotFoundException{
 		properties = new Properties();
 		config = Configuration.getInstance();
 		properties.load(new FileInputStream(Configuration.getInstance().getDatabaseConfigPath()));
 		mysqlConn = getNewMysqlDB();
 		initializeArangoDB();
-//		redis = new Jedis();
 	}
-	
-	/**
-	 * To reduce use of synchronization, use  double-checked locking.
-	 * we first check to see if an instance is created, and if not, then we synchronize. This
-	 * way, we only synchronize the first time which is the initialization phase.
-	 * 
-	 * @return
-	 * 		DatabaseConnection singleton instance
-	 * @throws SQLException 
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
-	 * @throws ClassNotFoundException 
-	 */
-	public static DatabaseConnection getInstance() throws FileNotFoundException, IOException, SQLException, ClassNotFoundException{
-		if(instance == null){
-			synchronized (DatabaseConnection.class) {
-				if(instance == null){
-					instance = new DatabaseConnection();
-				}
-			}
-		}	
+
+	public static void init() throws SQLException, IOException, ClassNotFoundException {
+		instance = new DatabaseConnection();
+	}
+
+	public static DatabaseConnection getInstance() {
 		return instance;
 	}
 
@@ -91,7 +75,7 @@ public class DatabaseConnection {
 	 * @throws ClassNotFoundException
 	 */
 	private Connection getNewMysqlDB() throws SQLException, ClassNotFoundException{
-		// This will load the MySQL driver, each DB has its own driver
+		// This will load the BlockingHandler driver, each DB has its own driver
 		Class.forName(properties.getProperty("mysql.database-driver"));
 		// create new connection and return it
 		return DriverManager.getConnection(properties.getProperty("mysql.url"),

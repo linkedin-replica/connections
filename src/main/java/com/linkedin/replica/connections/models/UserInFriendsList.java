@@ -5,25 +5,36 @@ public class UserInFriendsList {
     private String userId;
     private String firstName;
     private String lastName;
-    private String imageURL;
-    private String headline;
+    private String profilePictureUrl;
 
     public UserInFriendsList(){};
 
-    public UserInFriendsList(String userId, String firstName, String lastName, String imageURL, String headline) {
+    public UserInFriendsList(String userId, String firstName, String lastName, String profilePictureUrl) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.imageURL = imageURL;
-        this.headline = headline;
+        this.profilePictureUrl = profilePictureUrl;
+    }
+
+    public UserInFriendsList(String userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInFriendsList{" +
+                "userId='" + userId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", profilePictureUrl='" + profilePictureUrl + '\'' +
+                '}';
     }
 
     public UserInFriendsList(User user){
         this.userId = user.getUserId();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
-        this.imageURL = user.getImageUrl();
-        this.headline = user.getHeadline();
+        this.profilePictureUrl = user.getImageUrl();
     }
 
     public String getUserId() {
@@ -38,13 +49,10 @@ public class UserInFriendsList {
         return lastName;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getProfilePictureUrl() {
+        return profilePictureUrl;
     }
 
-    public String getHeadline() {
-        return headline;
-    }
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -58,11 +66,8 @@ public class UserInFriendsList {
         this.lastName = lastName;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setProfilePictureUrl(String imageURL) {
+        this.profilePictureUrl = imageURL;
     }
 
-    public void setHeadline(String headline) {
-        this.headline = headline;
-    }
 }

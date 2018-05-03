@@ -29,7 +29,7 @@ public class ConnectionsService {
 		config = Configuration.getInstance();
 	}
 		
-	public Object serve(String commandName, HashMap<String, Object> args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException, NoSuchMethodException, InvocationTargetException {
+	public Object serve(String commandName, HashMap<String, Object> args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException, NoSuchMethodException, InvocationTargetException, IOException {
 		Class<?> commandClass = config.getCommandClass(commandName);
 		Constructor constructor = commandClass.getConstructor(HashMap.class);
 		Command command = (Command) constructor.newInstance(args);
