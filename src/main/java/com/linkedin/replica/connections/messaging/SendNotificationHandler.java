@@ -14,11 +14,15 @@ public class SendNotificationHandler {
     private static SendNotificationHandler sendNotificationHandler;
     private final Configuration configuration = Configuration.getInstance();
     private final String QUEUE_NAME = configuration.getAppConfigProp("notifications.queue.name");
+    private final String RABBIT_MQ_USERNAME = configuration.getAppConfigProp("rabbitmq.username");
+    private final String RABBIT_MQ_PASSWORD = configuration.getAppConfigProp("rabbitmq.password");
 
     private Connection connection;
     private SendNotificationHandler() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(configuration.getAppConfigProp("rabbitmq.ip"));
+        factory.setUsername(RABBIT_MQ_USERNAME);
+        factory.setPassword(RABBIT_MQ_PASSWORD);
         connection = factory.newConnection();
     }
 

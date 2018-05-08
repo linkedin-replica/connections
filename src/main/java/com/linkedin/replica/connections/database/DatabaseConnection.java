@@ -55,6 +55,7 @@ public class DatabaseConnection {
 	 */
 	private void initializeArangoDB() {
 		arangodb = new ArangoDB.Builder()
+				.host(config.getArangoConfigProp("arangodb.host"),Integer.parseInt(config.getArangoConfigProp("arangodb.port")))
 				.user(config.getArangoConfigProp("arangodb.user"))
 				.password(config.getArangoConfigProp("arangodb.password"))
 				.build();

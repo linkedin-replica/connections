@@ -60,6 +60,10 @@ public class Main {
 
 	public static void main(String[] args) throws ClassNotFoundException, IOException,
 												SQLException, InterruptedException {
-		Main.start(args);
+		String[] arg = {"src/main/resources/app.config",
+				"src/main/resources/database.config" ,
+				"src/main/resources/commands.config",
+				"src/main/resources/controller.config"};
+		Main.start(arg);
 	}
 }
