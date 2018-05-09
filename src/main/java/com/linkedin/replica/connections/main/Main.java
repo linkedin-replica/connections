@@ -15,8 +15,8 @@ public class Main {
 	public static void start(String... args) throws FileNotFoundException, ClassNotFoundException, IOException,
 												SQLException, InterruptedException {
 		if(args.length != 4)
-			throw new IllegalArgumentException("Expected three arguments. 1-database.config file path "
-					+ "2- commands.config file path  3- arango_name file path 4- controller.config file path");
+			throw new IllegalArgumentException("Expected four arguments. 1-app.config file path "
+					+ "2- database.config file path  3- command.config file path 4- controller.config file path");
 		
 		// create singleton instance of Configuration class that will hold configuration files paths
 		Configuration.init(args[0], args[1], args[1], args[2], args[3]);
